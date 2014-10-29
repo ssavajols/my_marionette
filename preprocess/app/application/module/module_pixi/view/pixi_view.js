@@ -8,7 +8,7 @@ define('application/module/module_pixi/view/pixi_view',
     ],
     function(MA_compositeView, BehaviorPixi){
 
-        var SampleView = MA_compositeView.extend({
+        var PixiView = MA_compositeView.extend({
             template: $.noop,
             className: "container-canvas",
             behaviors: {
@@ -19,6 +19,6 @@ define('application/module/module_pixi/view/pixi_view',
 
         });
 
-        return SampleView;
+        return PixiView;
 
     });

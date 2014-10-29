@@ -4,8 +4,7 @@ define('application/behavior/pixi',
     ],
     function(MA_behavior){
 
-        var Behavior;
-        Behavior = MA_behavior.extend({
+        var Behavior = MA_behavior.extend({
 
             events: {
                 "mousemove canvas": "onMouseMove"
