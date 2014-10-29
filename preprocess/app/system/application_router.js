@@ -1,3 +1,6 @@
+/**
+ * Global application router
+ */
 define('system/application_router',
 
     [
@@ -11,7 +14,6 @@ define('system/application_router',
         var Router = MA_app_router.extend({
 
             initialize: function(options){
-                console.log(options);
                 this.controller = new Controller(options);
                 this.controller.moduleRoutes = this.moduleRoutes;
             },

@@ -1,3 +1,6 @@
+/**
+ * Helpers for application
+ */
 define('application/helper/sample', function(){
 
     var helper = {

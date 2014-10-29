@@ -1,12 +1,14 @@
+/**
+ * Sample controller
+ */
 define('application/module/module_sample/controller/controller',
     [
+        "system/core/ma_controller",
         "application/module/module_sample/view/sample_view"
     ],
-    function(SampleView){
+    function(MA_controller, SampleView){
 
-    var controller = Backbone.Marionette.Controller.extend({
-
-        channel: Backbone.Wreqr.radio.channel('global'),
+    var controller = MA_controller.extend({
 
         index: function(){
 

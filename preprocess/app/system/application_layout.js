@@ -1,3 +1,6 @@
+/**
+ * Global application layout
+ */
 define('system/application_layout',
     [
         "system/core/ma_layout"

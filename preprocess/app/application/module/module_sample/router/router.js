@@ -1,3 +1,6 @@
+/**
+ * Sample router
+ */
 define('application/module/module_sample/router/router',
     [
         "system/core/ma_sub_router",

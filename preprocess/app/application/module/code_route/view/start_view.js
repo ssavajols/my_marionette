@@ -1,17 +1,25 @@
 define('application/module/code_route/view/start_view',
     [
-        "system/core/ma_item_view"
+        "application/core/my_item_view",
+        "application/behavior/mousemove"
     ],
-    function(MA_itemView){
+    function(MY_itemView, MouseMove){
 
-
-        var StartView = MA_itemView.extend({
+        var StartView = MY_itemView.extend({
             template:"#intro",
+
             ui: {
                 start: ".start"
             },
+
             events: {
                 "click @ui.start": "startBtn"
+            },
+
+            behaviors: {
+                mouseMove: {
+                    behaviorClass: MouseMove
+                }
             },
 
             initialize: function(){

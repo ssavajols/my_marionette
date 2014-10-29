@@ -1,3 +1,6 @@
+/**
+ * Global application controller
+ */
 define('system/application_controller',
     [
     ],
@@ -6,7 +9,6 @@ define('system/application_controller',
         var Controller = Backbone.Marionette.Controller.extend({
 
             initialize: function(options){
-                console.log(arguments);
                 this.application = options.app;
                 this.mainModule = options.opt.mainModule;
             },
@@ -19,6 +21,7 @@ define('system/application_controller',
             },
 
             runModule: function(routeName){
+                console.log(arguments);
 
                 var moduleName;
 

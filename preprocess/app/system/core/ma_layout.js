@@ -1,3 +1,6 @@
+/**
+ * Core layout
+ */
 define('system/core/ma_layout', function(){
 
     var Layout = Backbone.Marionette.LayoutView.extend({

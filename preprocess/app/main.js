@@ -1,3 +1,6 @@
+/**
+ * Main file
+ */
 define('main',
     [
         "system/application_initializer",

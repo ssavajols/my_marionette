@@ -1,7 +1,16 @@
+/**
+ * Core item view class
+ *
+ * Set template to anonymous function, scroll and resize listeners
+ * Auto subscribe to global channel
+ *
+ */
 define('system/core/ma_item_view', function(){
     var View = Backbone.Marionette.ItemView.extend({
 
         channel: Backbone.Wreqr.radio.channel('global'),
+
+        innerChannel: null,
 
         template: $.noop,
 

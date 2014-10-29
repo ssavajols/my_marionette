@@ -1,3 +1,6 @@
+/**
+ * Sample view
+ */
 define('application/module/module_sample/view/sample_view',
     [
         "system/core/ma_item_view"

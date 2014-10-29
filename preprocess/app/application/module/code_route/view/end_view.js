@@ -10,8 +10,6 @@ define('application/module/code_route/view/end_view',
 
             initialize: function(options){
 
-                console.log(this.override);
-
                 this.serializeData = _.bind(function(){
                     return {result: this[options.isValid ? "getOkText" : "getKoText"]()};
                 }, this);

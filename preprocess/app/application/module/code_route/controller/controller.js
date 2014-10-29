@@ -1,5 +1,7 @@
 define('application/module/code_route/controller/controller',
     [
+        "system/core/ma_controller",
+
         "application/module/code_route/view/layout",
         "application/module/code_route/view/start_view",
         "application/module/code_route/view/end_view",
@@ -7,12 +9,11 @@ define('application/module/code_route/controller/controller',
 
         "application/module/code_route/model/i18n_model"
     ],
-    function(LayoutView, StartView, EndView, QuestionView, I18nModel){
+    function(MA_controller, LayoutView, StartView, EndView, QuestionView, I18nModel){
 
     var moduleLayout = new LayoutView();
 
-    var controller = Backbone.Marionette.Controller.extend({
-        channel: Backbone.Wreqr.radio.channel('global'),
+    var controller = MA_controller.extend({
 
         timer: {},
 

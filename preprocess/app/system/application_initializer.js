@@ -1,3 +1,6 @@
+/**
+ * Global application initialize
+ */
 define('system/application_initializer',
     [
         "system/application",
@@ -61,13 +64,30 @@ define('system/application_initializer',
        });
     });
 
+    // BEHAVIORS LOOKUP
+    Application.addInitializer(function(options){
+       Backbone.Marionette.Behaviors.behaviorsLookup = function(){
+           return Backbone.Marionette.Behaviors.behaviorsStore;
+       };
+    });
+
     // ROUTER
     Application.addInitializer(function(options){
        new Router({app: Application, opt: config});
     });
 
     Application.on('start', function(){
-       Backbone.history.start();
+
+       var historyConfig = {};
+
+       historyConfig.pushState = config.urlPushState;
+       historyConfig.silent = false;
+
+       if( config.base_url ){
+        historyConfig.root = config.base_url;
+       }
+
+       Backbone.history.start(historyConfig);
     });
 
     return Application;
