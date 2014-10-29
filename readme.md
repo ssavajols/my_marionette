@@ -2,7 +2,7 @@
 
 Backbone marionette boilerplate
 
-``
+```
 ├── application
 │   ├── behavior
 │   │   ├── image_loader.js
