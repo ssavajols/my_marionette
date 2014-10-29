@@ -22,3 +22,4 @@ define('application/module/module_sample/controller/controller',
 
 
 });
+
