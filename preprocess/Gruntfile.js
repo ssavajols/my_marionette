@@ -1,6 +1,6 @@
 module.exports = function (grunt) {
 
-    var config  =grunt.file.readJSON('config_path.json');
+    var config = grunt.file.readJSON('config_app.json');
 
     // Project configuration.
     grunt.initConfig({
@@ -14,6 +14,11 @@ module.exports = function (grunt) {
                 force: true,
                 reporter: require('jshint-stylish')
             }
+        },
+
+        clean: {
+            sourceMap: ["<%= config.public_path %>/**/*.map"],
+            tmp: ["<%= config.tmp_path %>/*"]
         },
 
         // FOR DEV APP FILES AND VENDOR FILES JS
@@ -168,7 +173,7 @@ module.exports = function (grunt) {
         // WATCHER
         watch: {
             config: {
-                files: ['Gruntfile.js', "config_path.json"],
+                files: ['Gruntfile.js', "config_app.json"],
                 options: {
                     reload: true
                 }
@@ -195,7 +200,7 @@ module.exports = function (grunt) {
             },
             vendor: {
                 files: ['<%= config.vendor_path %>/**/*.js', '<%= config.vendor_path %>/**/*.css'],
-                tasks: ['bower_concat', 'uglify:dev_vendor'],
+                tasks: ['bower_concat', 'uglify:dev_vendor', "clean:tmp"],
                 options: {
                     spawn: false,
                     livereload: true
@@ -205,6 +210,7 @@ module.exports = function (grunt) {
     });
 
     // LOAD GRUNT NPM TASKS
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
@@ -216,12 +222,12 @@ module.exports = function (grunt) {
 
 
     // REGISTER TASKS
-    // $ grunt // Will trigger "degault" task
+    // $ grunt // Will trigger "default" task
     // $ grunt compile // Will trigger "compile" task
     // which perform "jshint", "sass", "uglify", "requirejs" tasks
 
-    grunt.registerTask('compile', ["jshint", "bower_concat:prod", "uglify:prod", "requirejs", "sass"]);
-    grunt.registerTask('watch_tasks', ["jshint", "bower_concat:dev", "uglify:dev_vendor", "uglify:dev_app", "sass"]);
+    grunt.registerTask('compile', ["jshint", "bower_concat:prod", "uglify:prod", "requirejs", "sass", "clean"]);
+    grunt.registerTask('watch_tasks', ["jshint", "bower_concat:dev", "uglify:dev_vendor", "uglify:dev_app", "sass", "clean:tmp"]);
     grunt.registerTask('watch_php', ["watch_tasks", "php", "watch"]);
     grunt.registerTask('watch_server', ["watch_tasks", "connect", "watch"]);
     grunt.registerTask('watch_no_server', ["watch_tasks", "watch"]);
