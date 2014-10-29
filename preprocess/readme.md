@@ -1,3 +1,0 @@
-# MY MARIONETTE
-
-Marionette boilerplate
