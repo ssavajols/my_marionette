@@ -20,7 +20,7 @@ define('system/application_router',
 
             appRoutes: {
                 ":module(/*subRoute)": "runModule",
-                "": "index"
+                "*actions": "index"
             },
 
             moduleRoutes: moduleRoutes

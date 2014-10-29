@@ -9,11 +9,22 @@ define('system/application_controller',
         var Controller = Backbone.Marionette.Controller.extend({
 
             initialize: function(options){
+                this.options = options.opt;
                 this.application = options.app;
                 this.mainModule = options.opt.mainModule;
             },
 
             index: function(baseRoute){
+                var redirectURI;
+
+                if( !this.options.urlPushState && !window.location.hash ){
+
+                    redirectURI = window.location.href.replace("http://"+window.location.hostname+this.options.base_url, "");
+
+                    if( redirectURI ){
+                        Backbone.history.navigate(redirectURI, {trigger: true});
+                    }
+                }
 
                 if( this.application[this.mainModule]){
                     this.application.module(this.mainModule).start(baseRoute);
@@ -21,7 +32,6 @@ define('system/application_controller',
             },
 
             runModule: function(routeName){
-                console.log(arguments);
 
                 var moduleName;
 

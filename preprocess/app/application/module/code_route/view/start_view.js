@@ -16,11 +16,11 @@ define('application/module/code_route/view/start_view',
                 "click @ui.start": "startBtn"
             },
 
-            behaviors: {
-                mouseMove: {
-                    behaviorClass: MouseMove
-                }
-            },
+//            behaviors: {
+//                mouseMove: {
+//                    behaviorClass: MouseMove
+//                }
+//            },
 
             initialize: function(){
 

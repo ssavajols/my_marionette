@@ -11,34 +11,36 @@ define('application/module/code_route/controller/controller',
     ],
     function(MA_controller, LayoutView, StartView, EndView, QuestionView, I18nModel){
 
-    var moduleLayout = new LayoutView();
-
     var controller = MA_controller.extend({
 
         timer: {},
 
-        initialize: function(){
+        layout: null,
 
-            this.channel.commands.execute('setView', moduleLayout, 'content');
+        initialize: function(){
             this.channel.vent.on('btnStart', _.bind(this.hideModal, this));
             this.channel.vent.on('end', _.bind(this.questionEnd, this));
         },
 
         index: function(){
 
+            this.layout = new LayoutView();
+
+            this.channel.commands.execute('setView', this.layout, 'content');
+
             this.i18nModel = new I18nModel();
 
             this.i18nModel.fetch().then(_.bind(function(){
                 clearTimeout(this.timer.started);
-                moduleLayout.setView(new StartView({model: this.i18nModel}), 'footer', true);
+                this.layout.setView(new StartView({model: this.i18nModel}), 'footer', true);
             }, this));
 
         },
 
         hideModal: function(){
-            moduleLayout.removeView('footer', true, _.bind(function(){
+            this.layout.removeView('footer', true, _.bind(function(){
 
-                moduleLayout.setView(new QuestionView(),'content', true);
+                this.layout.setView(new QuestionView(),'content', true);
 
                 clearTimeout(this.timer.started);
                 this.timer.started = setTimeout(_.bind(this.questionEnd, this), 1000*60);
@@ -49,8 +51,8 @@ define('application/module/code_route/controller/controller',
 
         questionEnd: function(event){
             clearTimeout(this.timer.started);
-            moduleLayout.setView(new EndView({isValid: event && event.isValid || false, model: this.i18nModel}), 'footer', true, _.bind(function(){
-                moduleLayout.removeView('content', true);
+            this.layout.setView(new EndView({isValid: event && event.isValid || false, model: this.i18nModel}), 'footer', true, _.bind(function(){
+                this.layout.removeView('content', true);
             }, this));
         }
 

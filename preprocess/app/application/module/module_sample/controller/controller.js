@@ -12,7 +12,7 @@ define('application/module/module_sample/controller/controller',
 
         index: function(){
 
-            this.channel.commands.execute("setView", new SampleView(), 'modal', true);
+            this.channel.commands.execute("setView", new SampleView(), 'content', true);
 
         }
 

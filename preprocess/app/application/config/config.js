@@ -41,7 +41,7 @@ define('application/config/config',
                      </ifModule>
              *
              */
-            urlPushState: Modernizr.history,
+            urlPushState: Modernizr && Modernizr.history,
 
             /**
              * Main module to load
