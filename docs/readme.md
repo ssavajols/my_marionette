@@ -1,3 +1,5 @@
-[Configuration](https://github.com/ssavajols/my_marionette/blob/master/docs/configuration.md)
+# SUMMARY
 
-[Routes](https://github.com/ssavajols/my_marionette/blob/master/docs/routes.md)
+Application configuration documentation [here](https://github.com/ssavajols/my_marionette/blob/master/docs/configuration.md)
+
+Module routes documentation [here](https://github.com/ssavajols/my_marionette/blob/master/docs/routes.md)
