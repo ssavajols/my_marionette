@@ -1,0 +1,14 @@
+.DS_STORE
+.idea
+.sass-cache
+public/css/style.css
+public/css/style.css.map
+public/js/app.js
+public/js/app.js.map
+public/js/vendor.js
+public/js/vendor.js.map
+preprocess/app/_OLD
+preprocess/node_modules
+preprocess/vendor/bower_components
+preprocess/tmp
+preprocess/.idea
