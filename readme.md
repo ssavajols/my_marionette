@@ -2,6 +2,7 @@
 
 Backbone marionette boilerplate
 
+``
 ├── application
 │   ├── behavior
 │   │   ├── image_loader.js
@@ -75,3 +76,4 @@ Backbone marionette boilerplate
         ├── ma_module.js
         ├── ma_router.js
         └── ma_sub_router.js
+```
