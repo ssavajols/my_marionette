@@ -2,7 +2,7 @@
 
 Backbone marionette boilerplate
 
-Documentation [here](https://github.com/ssavajols/my_marionette/docs/readme.md).
+Documentation [here](https://github.com/ssavajols/my_marionette/blob/master/docs/readme.md).
 
 ### DIRECTORY TREE
 ```
