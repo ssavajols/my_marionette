@@ -12,14 +12,14 @@
  *      Set to true to auto start module on start global application
  *
  */
-define('application/module/module_sample/module_sample',
+define('application/module/module_pixi/module_pixi',
     [
         "system/application",
-        "application/module/module_sample/router/router"
+        "application/module/module_pixi/router/router"
     ],
     function(Application, Router){
 
-        Application.module('module_sample', {
+        Application.module('module_pixi', {
             startWithParent: false,
 
             initialize: function(options){

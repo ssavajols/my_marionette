@@ -14,7 +14,9 @@ define('application/config/module_routes', function(){
 
         "code_route": ["code_route", "page", "abc"],
 
-        "module_sample": ["test", "sample"]
+        "module_sample": ["test", "sample"],
+
+        "module_pixi": ["pixi"]
     };
 
     return module_routes;
