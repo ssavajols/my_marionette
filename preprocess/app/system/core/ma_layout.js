@@ -1,11 +1,15 @@
 /**
  * Core layout
  */
-define('system/core/ma_layout', function(){
+define('system/core/ma_layout',
+    [
+        "application/config/config"
+    ],
+    function(config){
 
     var Layout = Backbone.Marionette.LayoutView.extend({
 
-        channel: Backbone.Wreqr.radio.channel('global'),
+        channel: Backbone.Wreqr.radio.channel(config.globalChannelName || 'global'),
 
         template: "#layout",
 

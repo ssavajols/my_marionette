@@ -4,7 +4,13 @@ define('application/behavior/scrollable',
     ],
     function(MA_behavior){
 
-        var Behavior = MA_behavior.extend();
+        var Behavior = MA_behavior.extend({
+
+            onShow: function(){
+                // @TODO: set scroll plugin
+                // ...
+            }
+        });
 
         return Behavior;
     });

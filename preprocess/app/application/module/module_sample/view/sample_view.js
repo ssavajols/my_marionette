@@ -8,7 +8,7 @@ define('application/module/module_sample/view/sample_view',
     function(MA_itemView){
 
         var SampleView = MA_itemView.extend({
-            template:"<div>This is a sample view</div>"
+            template:"<div>This is a module sample view</div>"
         });
 
         return SampleView;

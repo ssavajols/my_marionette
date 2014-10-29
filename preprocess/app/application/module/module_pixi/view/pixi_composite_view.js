@@ -1,7 +1,7 @@
 /**
  * Sample view
  */
-define('application/module/module_pixi/view/pixi_view',
+define('application/module/module_pixi/view/pixi_composite_view',
     [
         "system/core/ma_composite_view",
         "application/behavior/pixi"
@@ -15,6 +15,12 @@ define('application/module/module_pixi/view/pixi_view',
                 pixi: {
                     behaviorClass: BehaviorPixi
                 }
+            },
+            onMouseMove: function(event){
+                console.log(event);
+            },
+            onResize: function(){
+                console.log('view pixi resized');
             }
 
         });

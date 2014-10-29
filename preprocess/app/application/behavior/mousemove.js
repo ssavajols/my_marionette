@@ -7,10 +7,10 @@ define('application/behavior/mousemove',
         var Behavior = MA_behavior.extend({
 
             events: {
-                "mousemove": "onMousemove"
+                "mousemove": "onMouseMove"
             },
 
-            onMousemove: function(events){
+            onMouseMove: function(events){
                 console.log(events);
             }
         });

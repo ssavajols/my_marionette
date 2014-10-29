@@ -13,7 +13,7 @@ define('system/application_initializer',
     var appLayout = new Layout();
 
     // REGIONS
-    Application.addInitializer(function(options){
+    Application.addInitializer(function(){
         Application.addRegions({
             mainRegion: config.container
         });
@@ -22,7 +22,7 @@ define('system/application_initializer',
     });
 
     // EVENTS
-    Application.addInitializer(function(options){
+    Application.addInitializer(function(){
         $(window).on('scroll', function(event){
             Application.vent.trigger("custom:scroll", event);
         });
@@ -33,7 +33,7 @@ define('system/application_initializer',
     });
 
    // COMMANDS
-    Application.addInitializer(function(options){
+    Application.addInitializer(function(){
        Application.commands.setHandler("setView", function(view, region, show, callback){
             appLayout.setView(view, region, show, callback);
        });
@@ -52,27 +52,27 @@ define('system/application_initializer',
     });
 
     // RES REQ
-    Application.addInitializer(function(options){
+    Application.addInitializer(function(){
        Application.reqres.setHandler('getApp', function(){
           return Application;
        });
     });
 
-    Application.addInitializer(function(options){
+    Application.addInitializer(function(){
        Application.reqres.setHandler('getSettings', function(){
           return config;
        });
     });
 
     // BEHAVIORS LOOKUP
-    Application.addInitializer(function(options){
+    Application.addInitializer(function(){
        Backbone.Marionette.Behaviors.behaviorsLookup = function(){
            return Backbone.Marionette.Behaviors.behaviorsStore;
        };
     });
 
     // ROUTER
-    Application.addInitializer(function(options){
+    Application.addInitializer(function(){
        new Router({app: Application, opt: config});
     });
 

@@ -1,9 +1,10 @@
 define('application/module/code_route/view/question_view',
     [
         "system/core/ma_item_view",
-        "application/module/code_route/collection/question_collection"
+        "application/module/code_route/collection/question_collection",
+        "application/behavior/image_loader"
     ],
-    function(MA_itemView, QuestionCollection){
+    function(MA_itemView, QuestionCollection, BehaviorImageLoader){
 
 
         var QuestionView = MA_itemView.extend({
@@ -14,6 +15,13 @@ define('application/module/code_route/view/question_view',
             events: {
                 "submit @ui.form": "submitForm"
             },
+
+            behaviors: {
+                imageLoader: {
+                    behaviorClass: BehaviorImageLoader
+                }
+            },
+
             collection: new QuestionCollection(),
 
             initialize: function(){

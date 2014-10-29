@@ -48,6 +48,11 @@ define('application/config/config',
              *
              * If no valid route, this module will be used by default
              */
-            mainModule: "code_route"
+            mainModule: "code_route",
+
+            /**
+             * Global channel name for backbone radio
+             */
+            globalChannelName: "global"
         };
     });

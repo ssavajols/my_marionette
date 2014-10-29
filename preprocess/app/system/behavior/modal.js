@@ -1,3 +1,12 @@
+/**
+ * Modal behavior
+ *
+ * View methods :
+ *      onBeforeCloseModal
+ *      onBeforeOpenModal
+ *      onAfterCloseModal
+ *      onAfterOpenModal
+ */
 define('system/behavior/modal',
     [
         "system/core/ma_behavior"
@@ -7,7 +16,8 @@ define('system/behavior/modal',
         var Behavior = MA_behavior.extend({
 
             events: {
-                "click .close-modal": "closeModal"
+                "click .close-modal": "closeModal",
+                "click .background-layer": "closeModal"
             },
 
             initialize: function(){
@@ -17,22 +27,17 @@ define('system/behavior/modal',
 
             openModal: function(event){
 
-                this.onBeforeOpenModal(event);
+                this.triggerViewMethod("onBeforeOpenModal", arguments);
 
-                this.channel.commands.execute("fadeIn", "modal", _.bind(this.onAfterOpenModal, this, event));
+                this.channel.commands.execute("fadeIn", "modal", _.bind(function(){this.triggerViewMethod("onAfterOpenModal", arguments);}, this, event));
             },
 
             closeModal: function(event){
 
-                this.onBeforeCloseModal(event);
+                this.triggerViewMethod("onBeforeCloseModal", arguments);
 
-                this.channel.commands.execute("fadeIn", "modal", _.bind(this.onAfterCloseModal, this, event));
-            },
-
-            onBeforeOpenModal: $.noop,
-            onBeforeCloseModal: $.noop,
-            onAfterOpenModal: $.noop,
-            onAfterCloseModal: $.noop
+                this.channel.commands.execute("fadeIn", "modal", _.bind(function(){this.triggerViewMethod("onAfterCloseModal", arguments);}, this, event));
+            }
         });
 
         return Behavior;

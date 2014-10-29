@@ -12,30 +12,49 @@ define('application/behavior/pixi',
 
             onShow: function(){
                 this.$el.append('<canvas></canvas>');
+
+                // @TODO: Initialize canvas
+                // ...
+
             },
 
+            initialize: function(){
+                this.setResizeListener();
+            },
 
             start: function () {
+                this.triggerViewMethod("onBeforeStart", arguments);
 
-                this.onBeforeStart();
-                this.onAfterStart();
+                // @TODO: Start actions
+                // ...
+
+                this.triggerViewMethod("onAfterStart", arguments);
             },
 
             stop: function () {
+                this.triggerViewMethod("onBeforeStop", arguments);
 
-                this.onBeforeStop();
-                this.onAfterStop();
+                // @TODO: Stop actions
+                // ...
+
+                this.triggerViewMethod("onAfterStop", arguments);
             },
 
-            onResize: function(){
+            onResize: function(event){
+                // @TODO: Resize actions
+                // ...
 
             },
 
-            onMouseMove: $.noop,
-            onBeforeStart: $.noop,
-            onBeforeStop: $.noop,
-            onAfterStart: $.noop,
-            onAfterStop: $.noop
+            onUpdate: function(){
+                // @TODO: Resize actions
+                // ...
+            },
+
+            onMouseMove: function(){
+                this.triggerViewMethod("onMouseMove", arguments);
+            }
+
         });
 
         return Behavior;

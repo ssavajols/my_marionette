@@ -1,15 +1,17 @@
 /**
- * Core controller class
+ * Core module class
  */
-define('system/core/ma_controller',
+define('system/core/ma_module',
     [
         "application/config/config"
     ],
     function(config){
 
-    var Controller = Backbone.Marionette.Controller.extend({
+    var Module = Backbone.Marionette.Module.extend({
+
         channel: Backbone.Wreqr.radio.channel(config.globalChannelName || 'global')
+
     });
 
-    return Controller;
+    return Module;
 });

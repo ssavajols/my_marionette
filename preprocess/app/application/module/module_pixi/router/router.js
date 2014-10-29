@@ -15,6 +15,7 @@ define('application/module/module_pixi/router/router',
             },
 
             appRoutes: {
+                "sample": "sample",
                 "": "index"
             }
         });

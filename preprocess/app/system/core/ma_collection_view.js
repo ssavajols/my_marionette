@@ -5,10 +5,14 @@
  * Auto subscribe to global channel
  *
  */
-define('system/core/ma_collection_view', function(){
+define('system/core/ma_collection_view',
+    [
+        "application/config/config"
+    ],
+    function(config){
     var CollectionView = Backbone.Marionette.CollectionView.extend({
 
-        channel: Backbone.Wreqr.radio.channel('global'),
+        channel: Backbone.Wreqr.radio.channel(config.globalChannelName || 'global'),
 
         innerChannel: null,
 

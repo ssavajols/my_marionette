@@ -5,10 +5,14 @@
  * Auto subscribe to global channel
  *
  */
-define('system/core/ma_composite_view', function(){
+define('system/core/ma_composite_view',
+    [
+        "application/config/config"
+    ],
+    function(config){
     var CompositeView = Backbone.Marionette.CompositeView.extend({
 
-        channel: Backbone.Wreqr.radio.channel('global'),
+        channel: Backbone.Wreqr.radio.channel(config.globalChannelName || 'global'),
 
         innerChannel: null,
 
