@@ -1,14 +1,16 @@
 define('application/module/code_route/view/end_view',
     [
-        "application/core/ma_item_view"
+        "application/core/my_item_view"
     ],
-    function(MA_itemView){
+    function(MY_itemView){
 
 
-        var EndView = MA_itemView.extend({
+        var EndView = MY_itemView.extend({
             template:"#result",
 
             initialize: function(options){
+
+                console.log(this.override);
 
                 this.serializeData = _.bind(function(){
                     return {result: this[options.isValid ? "getOkText" : "getKoText"]()};

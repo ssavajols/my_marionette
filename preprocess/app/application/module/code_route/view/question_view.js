@@ -1,6 +1,6 @@
 define('application/module/code_route/view/question_view',
     [
-        "application/core/ma_item_view",
+        "system/core/ma_item_view",
         "application/module/code_route/collection/question_collection"
     ],
     function(MA_itemView, QuestionCollection){

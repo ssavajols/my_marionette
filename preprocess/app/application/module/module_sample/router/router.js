@@ -1,6 +1,6 @@
 define('application/module/module_sample/router/router',
     [
-        "application/core/ma_sub_router",
+        "system/core/ma_sub_router",
         "application/module/module_sample/controller/controller"
     ],
     function(MA_sub_router, Controller){

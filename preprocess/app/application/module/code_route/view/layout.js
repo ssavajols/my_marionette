@@ -1,6 +1,6 @@
 define('application/module/code_route/view/layout',
     [
-        "application/core/ma_layout"
+        "system/core/ma_layout"
     ],
     function(MA_layout){
 

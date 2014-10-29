@@ -1,7 +1,7 @@
 // Module Definition
 define('application/module/code_route/code_route',
     [
-        "application/application",
+        "system/application",
         "application/module/code_route/router/router"
     ],
     function(Application, Router){

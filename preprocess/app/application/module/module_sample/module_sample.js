@@ -1,7 +1,7 @@
 // Module Definition
 define('application/module/module_sample/module_sample',
     [
-        "application/application",
+        "system/application",
         "application/module/module_sample/router/router"
     ],
     function(Application, Router){

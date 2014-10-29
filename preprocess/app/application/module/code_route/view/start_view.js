@@ -1,6 +1,6 @@
 define('application/module/code_route/view/start_view',
     [
-        "application/core/ma_item_view"
+        "system/core/ma_item_view"
     ],
     function(MA_itemView){
 
