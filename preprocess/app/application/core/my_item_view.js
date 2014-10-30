@@ -8,9 +8,9 @@ define('application/core/my_item_view',
     [
         "system/core/ma_item_view"
     ],
-    function(MA_item_view){
+    function(MA_itemView){
 
-       var ItemView =  MA_item_view.extend({
+       var ItemView =  MA_itemView.extend({
            override: true
        });
 
