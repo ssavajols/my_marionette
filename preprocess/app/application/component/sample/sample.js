@@ -18,6 +18,7 @@ define('application/component/sample/sample',
             moduleClass: MA_module,
             initialize: function(){
                 this.channel.commands.execute('setView', new SampleLayout(), 'header');
+                Object.getPrototypeOf(this).initialize.apply(this, arguments);
             }
         });
 

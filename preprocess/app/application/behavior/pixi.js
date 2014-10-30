@@ -6,51 +6,85 @@ define('application/behavior/pixi',
 
         var Behavior = MA_behavior.extend({
 
+            updateAnimationFrame:null,
+
             events: {
                 "mousemove canvas": "onMouseMove"
             },
 
+            /**
+             *
+             */
             onShow: function(){
                 this.$el.append('<canvas></canvas>');
 
-                // @TODO: Initialize canvas
-                // ...
-
+                this.start();
             },
 
+            /**
+             *
+             */
             initialize: function(){
+
+                this.view.on('destroy', _.bind(this.onDestroy, this));
+
                 this.setResizeListener();
             },
 
+            /**
+             *
+             */
             start: function () {
                 this.triggerViewMethod("onBeforeStart", arguments);
 
-                // @TODO: Start actions
-                // ...
+                _.bind(function animate(){
+
+                    this.updateAnimationFrame = requestAnimationFrame(_.bind(animate, this));
+
+                    this.onUpdate();
+                },this)();
 
                 this.triggerViewMethod("onAfterStart", arguments);
             },
 
+            /**
+             *
+             */
             stop: function () {
                 this.triggerViewMethod("onBeforeStop", arguments);
 
-                // @TODO: Stop actions
-                // ...
+                window.cancelAnimationFrame(this.updateAnimationFrame);
 
                 this.triggerViewMethod("onAfterStop", arguments);
             },
 
+            /**
+             *
+             */
+            onDestroy: function(){
+                this.stop();
+            },
+
+            /**
+             *
+             * @param event
+             */
             onResize: function(event){
-                // @TODO: Resize actions
-                // ...
 
             },
 
+            /**
+             *
+             */
             onUpdate: function(){
-                // @TODO: Resize actions
-                // ...
+
+                this.triggerViewMethod('onUpdate', {});
+
             },
 
+            /**
+             *
+             */
             onMouseMove: function(){
                 this.triggerViewMethod("onMouseMove", arguments);
             }

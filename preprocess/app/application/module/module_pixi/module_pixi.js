@@ -15,17 +15,20 @@
 define('application/module/module_pixi/module_pixi',
     [
         "system/application",
+        "system/core/ma_module",
         "application/module/module_pixi/router/router"
     ],
-    function(Application, Router){
+    function(Application, MA_module, Router){
 
         Application.module('module_pixi', {
             startWithParent: false,
-
+            moduleClass: MA_module,
             initialize: function(options){
                 this.on('start', function(baseRoute){
                    new Router(baseRoute);
                 });
+
+                Object.getPrototypeOf(this).initialize.apply(this, arguments);
             }
         });
 
