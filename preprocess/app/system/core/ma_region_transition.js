@@ -10,13 +10,13 @@ define('system/core/ma_region_transition',
                 fade: function(currentView, view, callback){
 
                     TweenLite.to(currentView.$el, 0, {opacity:0});
-                    TweenLite.fromTo(view.$el, 1, { opacity: 0}, {opacity:1, onComplete: function(){ callback();}});
+                    TweenLite.fromTo(view.$el, 1, { opacity: 0}, {opacity:1, delay:0.05, onComplete: function(){ callback();}});
 
                 },
                 cut: function(){
 
                     TweenLite.to(currentView.$el, 0, {opacity:0});
-                    TweenLite.fromTo(view.$el, 0, { opacity: 0}, {opacity:1, onComplete: function(){ callback();}});
+                    TweenLite.fromTo(view.$el, 1, { opacity: 0}, {opacity:1, delay:0.05, onComplete: function(){ callback();}});
 
                 }
             },
