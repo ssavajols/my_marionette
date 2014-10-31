@@ -17,8 +17,10 @@ define('application/component/sample/sample',
         Application.module('sample', {
             moduleClass: MA_module,
             initialize: function(){
+
                 this.channel.commands.execute('setView', new SampleLayout(), 'header');
-                Object.getPrototypeOf(this).initialize.apply(this, arguments);
+
+                Backbone.Marionette.Module.prototype.initialize.apply(this, arguments);
             }
         });
 

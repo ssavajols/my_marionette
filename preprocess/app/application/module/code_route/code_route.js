@@ -16,7 +16,7 @@ define('application/module/code_route/code_route',
                    new Router(baseRoute);
                 });
 
-                Object.getPrototypeOf(this).initialize.apply(this, arguments);
+                Backbone.Marionette.Module.prototype.initialize.apply(this, arguments);
             }
         });
 

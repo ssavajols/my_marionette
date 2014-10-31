@@ -28,7 +28,7 @@ define('application/module/module_pixi/module_pixi',
                    new Router(baseRoute);
                 });
 
-                Object.getPrototypeOf(this).initialize.apply(this, arguments);
+                Backbone.Marionette.Module.prototype.initialize.apply(this, arguments);
             }
         });
 

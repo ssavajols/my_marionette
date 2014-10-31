@@ -28,7 +28,7 @@ define('application/module/module_sample/module_sample',
                    new Router(baseRoute);
                 });
 
-                Object.getPrototypeOf(this).initialize.apply(this, arguments);
+                Backbone.Marionette.Module.prototype.initialize.apply(this, arguments);
             }
         });
 
