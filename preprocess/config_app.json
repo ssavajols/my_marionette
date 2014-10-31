@@ -6,6 +6,7 @@
   "app_path": "./app",
   "css_dir": "css",
   "js_dir": "js",
+  "template_dir": "templates",
 
   "protocole": "http",
   "hostname": "localhost",
@@ -13,7 +14,7 @@
 
   "require_include_modules" : ["main"],
   "bower_dependencies" : {
-      "backbone": ["jquery", "underscore"],
+      "backbone": ["twig.js", "jquery", "underscore"],
       "Marionette.SubRouter": "marionette"
   },
   "bower_main_files" : {

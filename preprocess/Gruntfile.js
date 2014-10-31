@@ -29,33 +29,37 @@ module.exports = function (grunt) {
                 compress: true,
                 preserveComments: false
             },
+            uglify_vendor_files: {
+                '<%= config.public_path %>/<%= config.js_dir %>/vendor.js': [
+                    // BEFORE
+                    '<%= config.tmp_path %>/_bower.js',
+                    '<%= config.tmp_path %>/_templates.js',
+
+                    // ALL
+                    '<%= config.vendor_path %>/**/*.js',
+                    '!<%= config.vendor_path %>/**/_*.js', // IGNORED
+                    '!<%= config.vendor_path %>/bower_components/**/*'
+
+                    // AFTER
+                ]
+            },
+
+            uglify_dev_files: {
+                "<%= config.public_path %>/<%= config.js_dir %>/app.js": [
+                    '<%= config.app_path %>/**/*.js',
+                    '!<%= config.app_path %>/**/_*.js' // IGNORED
+                ]
+            },
             dev_vendor: {
                 options: {
                     compress: {
                         warnings: false
                     }
                 },
-                files: {
-                    '<%= config.public_path %>/<%= config.js_dir %>/vendor.js': [
-                        // BEFORE
-                        '<%= config.tmp_path %>/_bower.js',
-
-                        // ALL
-                        '<%= config.vendor_path %>/**/*.js',
-                        '!<%= config.vendor_path %>/**/_*.js', // IGNORED
-                        '!<%= config.vendor_path %>/bower_components/**/*'
-
-                        // AFTER
-                    ]
-                }
+                files: '<%= uglify.uglify_vendor_files %>'
             },
             dev_app: {
-                files: {
-                    "<%= config.public_path %>/<%= config.js_dir %>/app.js": [
-                        '<%= config.app_path %>/**/*.js',
-                        '!<%= config.app_path %>/**/_*.js' // IGNORED
-                    ]
-                }
+                files: '<%= uglify.uglify_dev_files %>'
             },
             // ONLY VENDORS
             prod: {
@@ -66,19 +70,7 @@ module.exports = function (grunt) {
                         warnings: false
                     }
                 },
-                files: {
-                    '<%= config.public_path %>/<%= config.js_dir %>/vendor.js': [
-                        // BEFORE
-                        '<%= config.tmp_path %>/_bower.js',
-
-                        // ALL
-                        '<%= config.vendor_path %>/**/*.js',
-                        '!<%= config.vendor_path %>/**/_*.js', // IGNORED
-                        '!<%= config.vendor_path %>/bower_components/**/*'
-
-                        // AFTER
-                    ]
-                }
+                files: '<%= uglify.uglify_vendor_files %>'
             }
         },
 
@@ -125,21 +117,45 @@ module.exports = function (grunt) {
             }
         },
 
+        twig: {
+            options: {
+                amd_wrapper: false,
+                variable: 'window.Templates',
+                template_key: function(path){
+                    return path.replace(new RegExp(config.public_path+"\/"+config.template_dir+"\/(.*).twig"), "$1");
+                }
+            },
+            target: {
+                files: {
+                    '<%= config.tmp_path %>/_templates.js': [
+                        '<%= config.public_path %>/templates/**/*.twig'
+                    ]
+                }
+            }
+        },
+
         // SASS FILES
         sass: {
-            dist: {
+            sass_files:[
+                {
+                    expand: true,
+                    cwd: '<%= config.sass_path %>',
+                    src: ['**/*.scss'],
+                    dest: '<%= config.public_path %>/<%= config.css_dir %>/',
+                    ext: '.css'
+                }
+            ],
+            dev: {
                 options: {
                     sourcemap: true
                 },
-                files: [
-                    {
-                        expand: true,
-                        cwd: '<%= config.sass_path %>',
-                        src: ['**/*.scss'],
-                        dest: '<%= config.public_path %>/<%= config.css_dir %>/',
-                        ext: '.css'
-                    }
-                ]
+                files: '<%= sass.sass_files %>'
+            },
+            prod: {
+                options: {
+                    sourcemap: false
+                },
+                files: '<%= sass.sass_files %>'
             }
         },
 
@@ -188,7 +204,11 @@ module.exports = function (grunt) {
             },
             sass: {
                 files: ['<%= config.sass_path %>/**/*.scss'],
-                tasks: ['sass']
+                tasks: ['sass:dev']
+            },
+            twig: {
+                files: ['<%= config.public_path %>/**/*.twig'],
+                tasks: ['twig', 'uglify:dev_vendor']
             },
             css: {
                 files: ['<%= config.public_path %>/**/*.css'],
@@ -200,7 +220,7 @@ module.exports = function (grunt) {
             },
             vendor: {
                 files: ['<%= config.vendor_path %>/**/*.js', '<%= config.vendor_path %>/**/*.css'],
-                tasks: ['bower_concat', 'uglify:dev_vendor', "clean:tmp"],
+                tasks: ['bower_concat', 'uglify:dev_vendor'],
                 options: {
                     spawn: false,
                     livereload: true
@@ -217,6 +237,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-twig');
     grunt.loadNpmTasks('grunt-bower-concat');
     grunt.loadNpmTasks('grunt-php');
 
@@ -226,8 +247,8 @@ module.exports = function (grunt) {
     // $ grunt compile // Will trigger "compile" task
     // which perform "jshint", "sass", "uglify", "requirejs" tasks
 
-    grunt.registerTask('compile', ["jshint", "bower_concat:prod", "uglify:prod", "requirejs", "sass", "clean"]);
-    grunt.registerTask('watch_tasks', ["jshint", "bower_concat:dev", "uglify:dev_vendor", "uglify:dev_app", "sass", "clean:tmp"]);
+    grunt.registerTask('compile', ["jshint", "bower_concat:prod", "twig", "uglify:prod", "requirejs", "sass:prod", "clean"]);
+    grunt.registerTask('watch_tasks', ["jshint", "bower_concat:dev", "twig", "uglify:dev_vendor", "uglify:dev_app", "sass:dev"]);
     grunt.registerTask('watch_php', ["watch_tasks", "php", "watch"]);
     grunt.registerTask('watch_server', ["watch_tasks", "connect", "watch"]);
     grunt.registerTask('watch_no_server', ["watch_tasks", "watch"]);
