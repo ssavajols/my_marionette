@@ -10,7 +10,7 @@
 
 Core classes [documentation](./core-classes.md)
 
-Custom transitions [documentation](./custom-transition.md)
+Custom transitions [documentation](./custom-transitions.md)
 
 [Module](./module.md)
 
