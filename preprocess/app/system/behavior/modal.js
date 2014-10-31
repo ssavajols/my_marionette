@@ -24,7 +24,7 @@ define('system/behavior/modal',
 
                this.channel.commands.setHandler('modal:open', this.openModal);
 
-                MA.Behavior.prototype.initialize.apply(this, arguments);
+                MA_behavior.prototype.initialize.apply(this, arguments);
             },
 
             openModal: function(event){
