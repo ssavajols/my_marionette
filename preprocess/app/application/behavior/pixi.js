@@ -6,6 +6,22 @@ define('application/behavior/pixi',
 
         var Behavior = MA_behavior.extend({
 
+            events: {
+                "mousemove canvas": "onUserInteraction",
+                "touchmove canvas": "onUserInteraction",
+
+                "mousedown canvas": "onUserInteraction",
+                "touchstart canvas": "onUserInteraction",
+
+                "mouseup canvas": "onUserInteraction",
+                "touchend canvas": "onUserInteraction",
+
+                "mouseenter canvas": "onUserInteraction",
+                "mouseleave canvas": "onUserInteraction",
+
+                "click canvas": "onUserInteraction"
+            },
+
             updateAnimationFrame:null,
 
             /**
@@ -71,7 +87,7 @@ define('application/behavior/pixi',
              */
             onResize: function(event){
 
-                this.triggerViewMethod('resize', {});
+                this.triggerViewMethod('resize', event);
 
             },
 
@@ -83,6 +99,13 @@ define('application/behavior/pixi',
                 this.triggerViewMethod('update', {});
 
             },
+
+            onUserInteraction: function(event){
+
+                this.triggerViewMethod(event.type, event);
+
+            },
+
 
             onStart: function(){
                 this.start();

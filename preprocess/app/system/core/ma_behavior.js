@@ -16,7 +16,7 @@ define('system/core/ma_behavior',
             var methodName = "on" + method.charAt(0).toUpperCase() + method.slice(1);
 
             if( this.view && this.view[methodName]){
-                this.view[methodName].apply(this.view, args);
+                this.view[methodName].call(this.view, args);
             }
         },
 
