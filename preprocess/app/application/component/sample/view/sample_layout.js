@@ -10,6 +10,9 @@ define('application/component/sample/view/sample_layout',
 
         var SampleView = MA_layout.extend({
             template: "subdir/tpl",
+            events:{
+                "click .action": "clickMethod"
+            },
             initialize: function(){
 
                 this.model = new Backbone.Model();
@@ -25,6 +28,10 @@ define('application/component/sample/view/sample_layout',
             className: "component-sample",
             regions: {
                 header: ".header-component"
+            },
+            clickMethod: function(event){
+                event.preventDefault();
+                alert("clickMethod binded by Backbone.Events");
             }
         });
 

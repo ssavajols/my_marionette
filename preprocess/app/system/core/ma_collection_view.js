@@ -14,7 +14,7 @@ define('system/core/ma_collection_view',
 
         channel: Backbone.Wreqr.radio.channel(config.globalChannelName || 'global'),
 
-        template: $.noop,
+        template: false,
 
         initialize: function(){
             this.setResizeListener();

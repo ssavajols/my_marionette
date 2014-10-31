@@ -8,17 +8,15 @@ define('application/behavior/pixi',
 
             updateAnimationFrame:null,
 
-            events: {
-                "mousemove canvas": "onMouseMove"
-            },
-
             /**
              *
              */
             onShow: function(){
                 this.$el.append('<canvas></canvas>');
 
-                this.start();
+                if( this.autoStart ){
+                    this.start();
+                }
             },
 
             /**
@@ -28,14 +26,16 @@ define('application/behavior/pixi',
 
                 this.view.on('destroy', _.bind(this.onDestroy, this));
 
-                this.setResizeListener();
+                this.autoStart = this.options.autoStart !== false;
+
+                MA_behavior.prototype.initialize.apply(this);
             },
 
             /**
              *
              */
             start: function () {
-                this.triggerViewMethod("onBeforeStart", arguments);
+                this.triggerViewMethod("beforeStart", arguments);
 
                 _.bind(function animate(){
 
@@ -44,18 +44,18 @@ define('application/behavior/pixi',
                     this.onUpdate();
                 },this)();
 
-                this.triggerViewMethod("onAfterStart", arguments);
+                this.triggerViewMethod("afterStart", arguments);
             },
 
             /**
              *
              */
             stop: function () {
-                this.triggerViewMethod("onBeforeStop", arguments);
+                this.triggerViewMethod("beforeStop", arguments);
 
                 window.cancelAnimationFrame(this.updateAnimationFrame);
 
-                this.triggerViewMethod("onAfterStop", arguments);
+                this.triggerViewMethod("afterStop", arguments);
             },
 
             /**
@@ -71,6 +71,8 @@ define('application/behavior/pixi',
              */
             onResize: function(event){
 
+                this.triggerViewMethod('resize', {});
+
             },
 
             /**
@@ -78,15 +80,12 @@ define('application/behavior/pixi',
              */
             onUpdate: function(){
 
-                this.triggerViewMethod('onUpdate', {});
+                this.triggerViewMethod('update', {});
 
             },
 
-            /**
-             *
-             */
-            onMouseMove: function(){
-                this.triggerViewMethod("onMouseMove", arguments);
+            onStart: function(){
+                this.start();
             }
 
         });

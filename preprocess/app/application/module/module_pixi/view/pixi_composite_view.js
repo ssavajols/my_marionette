@@ -14,11 +14,17 @@ define('application/module/module_pixi/view/pixi_composite_view',
             className: "container-canvas",
             behaviors: {
                 pixi: {
-                    behaviorClass: BehaviorPixi
+                    behaviorClass: BehaviorPixi,
+                    autoStart: false
                 }
             },
             initialize: function(){
                 new MA_pixiItemView();
+
+//                setTimeout(_.bind(function(){
+                    console.log(this);
+                    this.triggerMethod('start');
+//                }, this), 1000);
             },
             onMouseMove: function(event){
                 this.channel.vent.trigger('module_pixi:mousemove', event);

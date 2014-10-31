@@ -11,7 +11,7 @@ define('system/core/ma_layout',
 
         channel: Backbone.Wreqr.radio.channel(config.globalChannelName || 'global'),
 
-        template: "#layout",
+        template: false,
 
         regions: {
             header: ".header",

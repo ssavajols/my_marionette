@@ -8,6 +8,7 @@ define('system/application_layout',
     function(MA_layout){
 
     var Layout = MA_layout.extend({
+        template: "#layout",
         initialize: function(){
             this.addRegions({
                 modal: "#modal"
