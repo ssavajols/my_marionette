@@ -26,34 +26,29 @@ define('application/module/code_route/controller/controller',
 
             this.layout = new LayoutView();
 
-            this.channel.commands.execute('setView', this.layout, 'content');
+            this.channel.commands.execute('setView', this.layout, 'content', 'fade');
 
             this.i18nModel = new I18nModel();
 
             this.i18nModel.fetch().then(_.bind(function(){
                 clearTimeout(this.timer.started);
-                this.layout.setView(new StartView({model: this.i18nModel}), 'footer', true);
+                this.layout.setView(new StartView({model: this.i18nModel}), 'content', {transition:"fade"});
             }, this));
 
         },
 
         hideModal: function(){
-            this.layout.removeView('footer', true, _.bind(function(){
 
-                this.layout.setView(new QuestionView(),'content', true);
+            this.layout.setView(new QuestionView(),'content', {transition:'fade'});
 
-                clearTimeout(this.timer.started);
-                this.timer.started = setTimeout(_.bind(this.questionEnd, this), 1000*60);
-
-            }, this));
+            clearTimeout(this.timer.started);
+            this.timer.started = setTimeout(_.bind(this.questionEnd, this), 1000*60);
 
         },
 
         questionEnd: function(event){
             clearTimeout(this.timer.started);
-            this.layout.setView(new EndView({isValid: event && event.isValid || false, model: this.i18nModel}), 'footer', true, _.bind(function(){
-                this.layout.removeView('content', true);
-            }, this));
+            this.layout.setView(new EndView({isValid: event && event.isValid || false, model: this.i18nModel}), 'content', {transition:'fade'});
         }
 
     });

@@ -14,6 +14,7 @@ define('system/application_router',
         var Router = MA_app_router.extend({
 
             initialize: function(options){
+
                 this.controller = new Controller(options);
                 this.controller.moduleRoutes = this.moduleRoutes;
 

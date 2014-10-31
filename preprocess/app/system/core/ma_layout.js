@@ -3,15 +3,18 @@
  */
 define('system/core/ma_layout',
     [
+        "system/core/ma_region_transition",
         "application/config/config"
     ],
-    function(config){
+    function(MA_regionTransition, config){
 
     var Layout = Backbone.Marionette.LayoutView.extend({
 
         channel: Backbone.Wreqr.radio.channel(config.globalChannelName || 'global'),
 
         template: "#layout",
+
+        regionClass: MA_regionTransition,
 
         regions: {
             header: ".header",
@@ -41,7 +44,7 @@ define('system/core/ma_layout',
             }, this));
         },
 
-        setView: function(view, region, show, callback){
+        setView: function(view, region, options, callback){
 
             if( view && region && this[region] ){
 
@@ -49,17 +52,8 @@ define('system/core/ma_layout',
                     return;
                 }
 
-                if( this[region].currentView ){
-                    this[region].empty();
-                }
+                this[region].show(view, options, callback);
 
-                this[region].show(view);
-
-                if(show) {
-                    this.fadeIn(500, region, callback);
-                }else if( typeof callback === "function"  ){
-                    callback();
-                }
             }
         },
 

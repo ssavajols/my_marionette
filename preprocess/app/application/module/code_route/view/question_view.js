@@ -49,7 +49,6 @@ define('application/module/code_route/view/question_view',
             },
 
             onAfterRender: function(){
-                TweenLite.fromTo(this.$el, 0.5, {display:"block", opacity:0}, {opacity:1});
                 TweenLite.fromTo(this.$el.find(".response-form"), 1, {y:window.innerHeight}, {y:0, ease: Cubic.easeOut});
             },
 
