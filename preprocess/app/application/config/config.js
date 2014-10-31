@@ -14,7 +14,7 @@ define('application/config/config',
             /**
              * Base url for backbone routes
              */
-            base_url: "/perso/my_marionette/public/",
+            base_url: BASE_URL || "",
 
             /**
              * Global application selector

@@ -13,7 +13,7 @@ define('application/behavior/twig',
                 if( typeof this.view.template === "string"){
                     this.view.template = Templates[this.view.template];
                 }
-                this.view.render = this._renderTemplate;
+                this.view._renderTemplate = this._renderTemplate;
             },
 
             /**

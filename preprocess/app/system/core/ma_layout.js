@@ -11,7 +11,7 @@ define('system/core/ma_layout',
 
         channel: Backbone.Wreqr.radio.channel(config.globalChannelName || 'global'),
 
-        template: false,
+        template: "#layout",
 
         regions: {
             header: ".header",
@@ -37,6 +37,10 @@ define('system/core/ma_layout',
         setView: function(view, region, show, callback){
 
             if( view && region && this[region] ){
+
+                if( this[region].currentView === view ){
+                    return;
+                }
 
                 if( this[region].currentView ){
                     this[region].empty();

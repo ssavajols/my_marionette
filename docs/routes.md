@@ -16,10 +16,9 @@ var module_routes = {
 ```
 
 Ex:
-```
-    application/module/module_sample could be accessed by the routes below :
 
-    /test
+    application/module/module_sample could be accessed by the routes below :
+    
+	/test
     or
     /sample
-````

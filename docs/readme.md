@@ -1,5 +1,6 @@
 # SUMMARY
 
+[Getting started](./getting-started.md)
 
 Core classes [documentation](https://github.com/ssavajols/my_marionette/blob/master/docs/core-classes.md)
 

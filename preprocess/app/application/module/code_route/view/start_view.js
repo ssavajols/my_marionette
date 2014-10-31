@@ -16,16 +16,10 @@ define('application/module/code_route/view/start_view',
                 "click @ui.start": "startBtn"
             },
 
-//            behaviors: {
-//                mouseMove: {
-//                    behaviorClass: MouseMove
-//                }
-//            },
-
             initialize: function(){
 
                 // OVERRIDE BASE VIEW METHODS
-                this.constructor.__super__.initialize.apply(this, arguments);
+                MY_itemView.prototype.initialize.apply(this, arguments);
             },
 
             startBtn: function(){
