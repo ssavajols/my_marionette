@@ -1,3 +1,3 @@
-# CORE CLASSES
+# CUSTOM TRANSITIONS
 
 @TODO: Write documentation

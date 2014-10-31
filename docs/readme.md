@@ -2,12 +2,20 @@
 
 [Getting started](./getting-started.md)
 
-Core classes [documentation](https://github.com/ssavajols/my_marionette/blob/master/docs/core-classes.md)
+[Best practices](./best-practice.md)
 
-Best practice [documentation](https://github.com/ssavajols/my_marionette/blob/master/docs/best-practice.md)
+[Component](./component.md)
 
-Override [documentation](https://github.com/ssavajols/my_marionette/blob/master/docs/override.md)
+[Configuration](./configuration.md)
 
-Application configuration documentation [here](https://github.com/ssavajols/my_marionette/blob/master/docs/configuration.md)
+Core classes [documentation](./core-classes.md)
 
-Module routes documentation [here](https://github.com/ssavajols/my_marionette/blob/master/docs/routes.md)
+Custom transitions [documentation](./custom-transition.md)
+
+[Module](./module.md)
+
+Override [documentation](./override.md)
+
+[Routes modules](./routes.md)
+
+[Template engine](./template-engine.md)
