@@ -14,6 +14,8 @@ define('system/application_layout',
             });
 
             this.$el.append('<div id="modal"></div>');
+
+            MA_layout.prototype.initialize.apply(this, arguments);
         }
     });
 

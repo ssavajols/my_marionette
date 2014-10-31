@@ -16,6 +16,8 @@ define('system/application_router',
             initialize: function(options){
                 this.controller = new Controller(options);
                 this.controller.moduleRoutes = this.moduleRoutes;
+
+                MA_app_router.prototype.initialize.apply(this, arguments);
             },
 
             appRoutes: {

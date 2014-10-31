@@ -19,6 +19,8 @@ define('system/core/ma_composite_view',
         initialize: function(){
             this.setResizeListener();
             this.setScrollListener();
+
+            Backbone.Marionette.CompositeView.prototype.initialize.apply(this, arguments);
         },
 
         setScrollListener: function(){

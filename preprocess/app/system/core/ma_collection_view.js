@@ -19,6 +19,8 @@ define('system/core/ma_collection_view',
         initialize: function(){
             this.setResizeListener();
             this.setScrollListener();
+
+            Backbone.Marionette.CollectionView.prototype.initialize.apply(this, arguments);
         },
 
         setScrollListener: function(){

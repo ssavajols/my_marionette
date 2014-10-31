@@ -19,6 +19,8 @@ define('system/core/ma_view',
         initialize: function(){
             this.setResizeListener();
             this.setScrollListener();
+
+            Backbone.Marionette.View.prototype.initialize.apply(this, arguments);
         },
 
         setScrollListener: function(){
