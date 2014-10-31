@@ -28,10 +28,9 @@ define('application/module/code_route/view/question_view',
 
                 this.collection.fetch().then(_.bind(function(){
                     this.setQuestion();
-
                 }, this));
 
-                this.constructor.__super__.initialize.apply(this, arguments);
+                MA_itemView.prototype.initialize.apply(this, arguments);
             },
 
             setQuestion: function(){
@@ -44,10 +43,9 @@ define('application/module/code_route/view/question_view',
             render: function(){
 
                 if( this.model ){
-                    this.constructor.__super__.render.apply(this, arguments);
+                    MA_itemView.prototype.render.apply(this, arguments);
                 }
 
-                this.onAfterRender();
             },
 
             onAfterRender: function(){

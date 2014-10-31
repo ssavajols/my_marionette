@@ -19,6 +19,13 @@ define('system/core/ma_layout',
             footer: ".footer"
         },
 
+        render: function(){
+
+            Backbone.Marionette.LayoutView.prototype.render.apply(this, arguments);
+
+            _.defer(_.bind(this.onAfterRender,this));
+        },
+
         removeView: function(region, hide, callback){
 
             if( !this[region] ){
@@ -72,7 +79,9 @@ define('system/core/ma_layout',
             }
 
             this[region].$el.fadeOut(time, callback);
-        }
+        },
+
+        onAfterRender: $.noop
     });
 
     return Layout;

@@ -10,6 +10,7 @@ define('system/core/ma_collection_view',
         "application/config/config"
     ],
     function(config){
+
     var CollectionView = Backbone.Marionette.CollectionView.extend({
 
         channel: Backbone.Wreqr.radio.channel(config.globalChannelName || 'global'),
@@ -17,23 +18,25 @@ define('system/core/ma_collection_view',
         template: false,
 
         initialize: function(){
-            this.setResizeListener();
-            this.setScrollListener();
+
+            this.channel.vent.on('custom:scroll', _.bind(this.onScroll, this));
+            this.channel.vent.on('custom:resize', _.bind(this.onResize, this));
 
             Backbone.Marionette.CollectionView.prototype.initialize.apply(this, arguments);
         },
 
-        setScrollListener: function(){
-            this.channel.vent.on('custom:scroll', _.bind(this.onScroll, this));
-        },
+        render: function(){
 
-        setResizeListener: function(){
-            this.channel.vent.on('custom:resize', _.bind(this.onResize, this));
+            Backbone.Marionette.CollectionView.prototype.render.apply(this, arguments);
+
+            _.defer(_.bind(this.onAfterRender,this));
         },
 
         onResize: $.noop,
 
-        onScroll: $.noop
+        onScroll: $.noop,
+
+        onAfterRender: $.noop
     });
 
     return CollectionView;

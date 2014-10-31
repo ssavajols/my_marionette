@@ -22,19 +22,14 @@ define('system/core/ma_behavior',
 
         initialize: function(){
 
-            this.setResizeListener();
-            this.setScrollListener();
+            this.channel.vent.on('custom:resize', _.bind(this.onResize, this));
+            this.channel.vent.on('custom:scroll', _.bind(this.onScroll, this));
 
             Backbone.Marionette.Behavior.prototype.initialize.apply(this, arguments);
         },
 
-        setResizeListener: function(){
-            this.channel.vent.on('custom:resize', _.bind(this.onResize, this));
-        },
-
-        setScrollListener: function(){
-            this.channel.vent.on('custom:scroll', _.bind(this.onResize, this));
-        }
+        onResize: $.noop,
+        onScroll: $.noop
     });
 
     return Behavior;

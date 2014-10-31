@@ -7,12 +7,9 @@ define('application/behavior/image_loader',
         var Behavior = MA_behavior.extend({
 
             onShow: function(){
-                // @TODO: set image loader plugin
-                // ...
-
-                _.defer(_.bind(function(){
-                    console.log(this.$el.find('.question-image').length);
-                }, this));
+//                _.defer(_.bind(function(){
+//                    console.log(this.$el.find('.question-image').length);
+//                }, this));
             }
         });
 
