@@ -4,13 +4,12 @@
 define('application/component/sample/view/sample_layout',
     [
         "system/core/ma_layout",
-        "application/behavior/handlebars",
-        "application/helper/handlebars"
+        "application/behavior/twig"
     ],
-    function(MA_layout, Handlebars){
+    function(MA_layout, Twig){
 
         var SampleView = MA_layout.extend({
-            template: "application/component/sample/view/templates/templates",
+            template: "subdir/tpl",
             events:{
                 "click .action": "clickMethod"
             },
@@ -22,8 +21,8 @@ define('application/component/sample/view/sample_layout',
                 MA_layout.prototype.initialize.apply(this, arguments);
             },
             behaviors: {
-               handlebars: {
-                   behaviorClass: Handlebars
+               twig: {
+                   behaviorClass: Twig
                }
             },
             className: "component-sample",

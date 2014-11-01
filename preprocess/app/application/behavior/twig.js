@@ -11,7 +11,7 @@ define('application/behavior/twig',
 
             initialize: function(){
                 if( typeof this.view.template === "string"){
-                    this.view.template = twigTemplates[this.view.template];
+                    this.view.template = twigTemplate[this.view.template];
                 }
                 this.view._renderTemplate = this._renderTemplate;
             },

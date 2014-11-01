@@ -11,7 +11,7 @@ define('application/behavior/handlebars',
 
             initialize: function(){
                 if( typeof this.view.template === "string"){
-                    this.view.template = hbsTemplates[this.view.template];
+                    this.view.template = hbsTemplate[this.view.template];
                 }
             }
 

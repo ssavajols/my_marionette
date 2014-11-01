@@ -121,7 +121,7 @@ module.exports = function (grunt) {
         twig: {
             options: {
                 amd_wrapper: false,
-                variable: 'window.twigTemplates',
+                variable: 'window.<%= config.twig_template_container %>',
                 template_key: function(path){
                     return path.replace(new RegExp(config.public_path+"\/"+config.template_dir+"\/(.*).twig"), "$1");
                 }
@@ -138,7 +138,7 @@ module.exports = function (grunt) {
         handlebars: {
             compile: {
                 options: {
-                    namespace: "hbsTemplates",
+                    namespace: "<%= config.handlebars_template_container %>",
                     processName: function(filePath) {
                         return filePath.replace(new RegExp(config.app_path+"\/(.*).hbs"), "$1");
                     }
