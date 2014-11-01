@@ -23,6 +23,7 @@
     "Marionette.SubRouter": "~0.0.4",
     "console-polyfill": "~0.1.2",
     "jquery": "1.11",
-    "twig.js": "~0.7.2"
+    "twig.js": "~0.7.2",
+    "handlebars": "~2.0.0"
   }
 }

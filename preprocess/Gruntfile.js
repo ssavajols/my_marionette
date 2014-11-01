@@ -33,7 +33,8 @@ module.exports = function (grunt) {
                 '<%= config.public_path %>/<%= config.js_dir %>/vendor.js': [
                     // BEFORE
                     '<%= config.tmp_path %>/_bower.js',
-                    '<%= config.tmp_path %>/_templates.js',
+                    '<%= config.tmp_path %>/_twig.js',
+                    '<%= config.tmp_path %>/_handlebars.js',
 
                     // ALL
                     '<%= config.vendor_path %>/**/*.js',
@@ -120,16 +121,30 @@ module.exports = function (grunt) {
         twig: {
             options: {
                 amd_wrapper: false,
-                variable: 'window.Templates',
+                variable: 'window.twigTemplates',
                 template_key: function(path){
                     return path.replace(new RegExp(config.public_path+"\/"+config.template_dir+"\/(.*).twig"), "$1");
                 }
             },
             target: {
                 files: {
-                    '<%= config.tmp_path %>/_templates.js': [
+                    '<%= config.tmp_path %>/_twig.js': [
                         '<%= config.public_path %>/templates/**/*.twig'
                     ]
+                }
+            }
+        },
+
+        handlebars: {
+            compile: {
+                options: {
+                    namespace: "hbsTemplates",
+                    processName: function(filePath) {
+                        return filePath.replace(new RegExp(config.app_path+"\/(.*).hbs"), "$1");
+                    }
+                },
+                files: {
+                    "<%= config.tmp_path %>/_handlebars.js": "<%= config.app_path %>/**/*.hbs"
                 }
             }
         },
@@ -210,6 +225,10 @@ module.exports = function (grunt) {
                 files: ['<%= config.public_path %>/**/*.twig'],
                 tasks: ['twig', 'uglify:dev_vendor']
             },
+            handlebars: {
+                files: ['<%= config.app_path %>/**/*.hbs'],
+                tasks: ['handlebars', 'uglify:dev_vendor']
+            },
             css: {
                 files: ['<%= config.public_path %>/**/*.css'],
                 options: {
@@ -237,6 +256,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-contrib-handlebars');
     grunt.loadNpmTasks('grunt-twig');
     grunt.loadNpmTasks('grunt-bower-concat');
     grunt.loadNpmTasks('grunt-php');
@@ -247,8 +267,8 @@ module.exports = function (grunt) {
     // $ grunt compile // Will trigger "compile" task
     // which perform "jshint", "sass", "uglify", "requirejs" tasks
 
-    grunt.registerTask('compile', ["jshint", "bower_concat:prod", "twig", "uglify:prod", "requirejs", "sass:prod", "clean"]);
-    grunt.registerTask('watch_tasks', ["jshint", "bower_concat:dev", "twig", "uglify:dev_vendor", "uglify:dev_app", "sass:dev"]);
+    grunt.registerTask('compile', ["jshint", "bower_concat:prod", "twig", "handlebars", "uglify:prod", "requirejs", "sass:prod", "clean"]);
+    grunt.registerTask('watch_tasks', ["jshint", "bower_concat:dev", "twig", "handlebars", "uglify:dev_vendor", "uglify:dev_app", "sass:dev"]);
     grunt.registerTask('watch_php', ["watch_tasks", "php", "watch"]);
     grunt.registerTask('watch_server', ["watch_tasks", "connect", "watch"]);
     grunt.registerTask('watch_no_server', ["watch_tasks", "watch"]);
