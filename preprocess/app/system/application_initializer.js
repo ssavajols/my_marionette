@@ -18,7 +18,9 @@ define('system/application_initializer',
             mainRegion: config.container
         });
 
-        Application.mainRegion.show(appLayout);
+        if( appLayout.template !== false ){
+            Application.mainRegion.show(appLayout);
+        }
     });
 
     // EVENTS
