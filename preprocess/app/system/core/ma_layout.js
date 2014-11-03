@@ -12,14 +12,14 @@ define('system/core/ma_layout',
 
         channel: Backbone.Wreqr.radio.channel(config.globalChannelName || 'global'),
 
-        template: "#layout",
+        template: false,
 
         regionClass: MA_regionTransition,
 
         regions: {
-            header: ".header",
-            content: ".content",
-            footer: ".footer"
+            header: new Backbone.Marionette.Region({el: ".header"}),
+            content: new Backbone.Marionette.Region({el: ".content"}),
+            footer: new Backbone.Marionette.Region({el: ".footer"})
         },
 
         render: function(){
