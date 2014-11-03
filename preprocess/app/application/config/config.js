@@ -41,7 +41,7 @@ define('application/config/config',
                      </ifModule>
              *
              */
-            urlPushState: Modernizr && Modernizr.history,
+            urlPushState: typeof window.enablePushState !== "undefined" ? window.enablePushState : Modernizr && Modernizr.history,
 
             /**
              * Main module to load
