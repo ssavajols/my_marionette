@@ -27,7 +27,7 @@ define('application/behavior/pixi',
             /**
              *
              */
-            onShow: function(){
+            onBeforeShow: function(){
                 this.$el.append('<canvas></canvas>');
 
                 if( this.autoStart ){
