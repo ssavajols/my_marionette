@@ -15,17 +15,17 @@ extend_based/preprocess/vendor/bower_components
 extend_based/preprocess/tmp
 extend_based/preprocess/.idea
 
-extend_based/.idea
-extend_based/preprocess/.sass-cache
-extend_based/public/css/style.css
-extend_based/public/css/style.css.map
-extend_based/public/js/app.js
-extend_based/public/js/app.js.map
-extend_based/public/js/vendor.js
-extend_based/public/js/vendor.js.map
-extend_based/preprocess/app/_OLD
-extend_based/preprocess/node_modules
-extend_based/preprocess/vendor/bower_components
-extend_based/preprocess/tmp
-extend_based/preprocess/.idea
+behavior_based/.idea
+behavior_based/preprocess/.sass-cache
+behavior_based/public/css/style.css
+behavior_based/public/css/style.css.map
+behavior_based/public/js/app.js
+behavior_based/public/js/app.js.map
+behavior_based/public/js/vendor.js
+behavior_based/public/js/vendor.js.map
+behavior_based/preprocess/app/_OLD
+behavior_based/preprocess/node_modules
+behavior_based/preprocess/vendor/bower_components
+behavior_based/preprocess/tmp
+behavior_based/preprocess/.idea
 
