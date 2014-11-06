@@ -2,7 +2,7 @@
 .idea
 
 extend_based/.idea
-extend_based/.sass-cache
+extend_based/preprocess/.sass-cache
 extend_based/public/css/style.css
 extend_based/public/css/style.css.map
 extend_based/public/js/app.js
@@ -16,7 +16,7 @@ extend_based/preprocess/tmp
 extend_based/preprocess/.idea
 
 extend_based/.idea
-extend_based/.sass-cache
+extend_based/preprocess/.sass-cache
 extend_based/public/css/style.css
 extend_based/public/css/style.css.map
 extend_based/public/js/app.js
