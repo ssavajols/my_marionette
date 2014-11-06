@@ -1,0 +1,11 @@
+{
+    "name": "abc",
+    "resultOkText": [
+            "Vous êtes trop fort !!!",
+            "Vous êtes fort !!!"
+        ],
+    "resultKoText": [
+            "Vous êtes un gros nul !!!",
+            "Vous êtes un gros boulet !!!"
+        ]
+}

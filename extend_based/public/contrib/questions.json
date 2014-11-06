@@ -1,0 +1,42 @@
+[{
+    "image": "image-1.jpg",
+    "question": "Ceci est une question 1",
+    "responses": [
+        {
+            "text": "Réponse 1",
+            "value": "1",
+            "valid": true
+        },
+        {
+            "text": "Réponse 2",
+            "value": "2",
+            "valid": true
+        },
+        {
+            "text": "Réponse 3",
+            "value": "3",
+            "valid": false
+        }
+    ]
+},
+    {
+        "image": "image-2.jpg",
+        "question": "Ceci est une question 2",
+        "responses": [
+            {
+                "text": "Réponse 1",
+                "value": "1",
+                "valid": false
+            },
+            {
+                "text": "Réponse 2",
+                "value": "2",
+                "valid": true
+            },
+            {
+                "text": "Réponse 3",
+                "value": "3",
+                "valid": false
+            }
+        ]
+    }]
