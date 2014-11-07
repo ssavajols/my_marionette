@@ -3,7 +3,7 @@
  */
 define('system/application_layout',
     [
-        "system/core/marionette.my.layoutview"
+        "system/core/marionette.my.layout_view"
     ],
     function(){
 
@@ -22,7 +22,7 @@ define('system/application_layout',
 
             this.$el.append('<div id="modal"></div>');
 
-            MA_layout.prototype.initialize.apply(this, arguments);
+            Backbone.Marionette.My.LayoutView.prototype.initialize.apply(this, arguments);
         }
     });
 

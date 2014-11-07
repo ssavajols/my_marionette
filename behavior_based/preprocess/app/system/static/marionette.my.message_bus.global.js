@@ -11,7 +11,7 @@ define('system/static/marionette.my.message_bus.global',
 
     var channelName = config.globalChannelName || 'global';
 
-    Backbone.Marionette.My.messageBus = {}
+    Backbone.Marionette.My.messageBus = {};
     Backbone.Marionette.My.messageBus[channelName] = Backbone.Wreqr.radio.channel(channelName);
 
 });

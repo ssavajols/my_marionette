@@ -3,12 +3,11 @@
  */
 define('application/module/module_sample/router/router',
     [
-        "system/core/ma_sub_router",
         "application/module/module_sample/controller/controller"
     ],
-    function(MA_sub_router, Controller){
+    function(Controller){
 
-        var Router = MA_sub_router.extend({
+        var Router = Backbone.Marionette.SubRouter.extend({
 
             initialize: function(options){
                 this.controller = new Controller(options);

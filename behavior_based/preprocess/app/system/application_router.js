@@ -10,14 +10,14 @@ define('system/application_router',
 
     function(Controller, moduleRoutes){
 
-        var Router = Backbone.Marionette.Router.extend({
+        var Router = Backbone.Marionette.AppRouter.extend({
 
             initialize: function(options){
 
                 this.controller = new Controller(options);
                 this.controller.moduleRoutes = this.moduleRoutes;
 
-                Backbone.Marionette.Router.prototype.initialize.apply(this, arguments);
+                Backbone.Marionette.AppRouter.prototype.initialize.apply(this, arguments);
             },
 
             appRoutes: {

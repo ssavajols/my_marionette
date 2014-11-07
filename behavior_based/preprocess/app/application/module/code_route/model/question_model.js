@@ -1,10 +1,9 @@
 define('application/module/code_route/model/question_model',
     [
-        "system/core/ma_model"
     ],
-    function(MA_model){
+    function(){
 
-        var QuestionModel = MA_model.extend({});
+        var QuestionModel = Backbone.Model.extend({});
 
         return QuestionModel;
     });

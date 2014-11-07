@@ -3,11 +3,10 @@
  */
 define('application/module/module_sample/view/sample_view',
     [
-        "system/core/ma_item_view"
     ],
-    function(MA_itemView){
+    function(){
 
-        var SampleView = MA_itemView.extend({
+        var SampleView = Backbone.Marionette.My.ItemView.extend({
             template:"<div>This is a module sample view</div>"
         });
 

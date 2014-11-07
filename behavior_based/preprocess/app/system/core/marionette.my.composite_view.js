@@ -43,5 +43,4 @@ define('system/core/marionette.my.composite_view',
         onAfterRender: $.noop
     });
 
-    return CompositeView;
 });

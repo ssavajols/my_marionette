@@ -51,9 +51,10 @@ define('system/core/marionette.my.layout_view',
                 this[region].show(view, options, callback);
 
             }
-        }
+        },
+
+        onAfterRender: $.noop
 
     });
 
-    return Layout;
 });

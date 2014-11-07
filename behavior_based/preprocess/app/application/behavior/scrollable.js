@@ -1,10 +1,9 @@
 define('application/behavior/scrollable',
     [
-        "system/core/ma_behavior"
     ],
-    function(MA_behavior){
+    function(){
 
-        var Behavior = MA_behavior.extend({
+        var Behavior = Backbone.Marionette.My.Behavior.extend({
 
             onShow: function(){
                 // @TODO: set scroll plugin

@@ -1,6 +1,6 @@
 define('system/core/marionette.my.region',
     [
-        "system/behavior/region/transitions"
+        "application/behavior/transitions"
     ],
     function(Transitions){
 
@@ -145,8 +145,6 @@ define('system/core/marionette.my.region',
             }
 
         });
-
-        return Transition;
 
     });
 

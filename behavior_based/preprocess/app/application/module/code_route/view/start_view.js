@@ -1,11 +1,9 @@
 define('application/module/code_route/view/start_view',
     [
-        "application/core/my_item_view",
-        "application/behavior/mousemove"
     ],
-    function(MY_itemView, MouseMove){
+    function(MouseMove){
 
-        var StartView = MY_itemView.extend({
+        var StartView = Backbone.Marionette.My.ItemView.extend({
             template:"#intro",
 
             ui: {
@@ -19,7 +17,7 @@ define('application/module/code_route/view/start_view',
             initialize: function(){
 
                 // OVERRIDE BASE VIEW METHODS
-                MY_itemView.prototype.initialize.apply(this, arguments);
+//                MY_itemView.prototype.initialize.apply(this, arguments);
             },
 
             startBtn: function(){

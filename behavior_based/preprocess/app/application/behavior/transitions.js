@@ -1,4 +1,4 @@
-define('system/behavior/region/transitions', function(){
+define('application/behavior/transitions', function(){
 
     var Behavior = Backbone.Marionette.My.Behavior.extend({
        transitions: {

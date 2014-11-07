@@ -1,10 +1,9 @@
 define('application/behavior/pixi',
     [
-        "system/core/ma_behavior"
     ],
-    function(MA_behavior){
+    function(){
 
-        var Behavior = MA_behavior.extend({
+        var Behavior = Backbone.Marionette.My.Behavior.extend({
 
             events: {
                 "mousemove canvas": "onUserInteraction",
@@ -44,7 +43,7 @@ define('application/behavior/pixi',
 
                 this.autoStart = this.options.autoStart !== false;
 
-                MA_behavior.prototype.initialize.apply(this);
+                Backbone.Marionette.My.Behavior.prototype.initialize.apply(this);
             },
 
             /**

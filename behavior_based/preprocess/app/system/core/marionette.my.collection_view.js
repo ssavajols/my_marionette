@@ -43,5 +43,4 @@ define('system/core/marionette.my.collection_view',
         onAfterRender: $.noop
     });
 
-    return CollectionView;
 });

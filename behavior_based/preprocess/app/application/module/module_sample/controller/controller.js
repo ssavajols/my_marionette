@@ -3,16 +3,15 @@
  */
 define('application/module/module_sample/controller/controller',
     [
-        "system/core/ma_controller",
         "application/module/module_sample/view/sample_view"
     ],
-    function(MA_controller, SampleView){
+    function(SampleView){
 
-    var controller = MA_controller.extend({
+    var controller = Backbone.Marionette.Controller.extend({
 
         index: function(){
 
-            this.channel.commands.execute("setView", new SampleView(), 'content', true);
+            Backbone.Marionette.My.messageBus.global.commands.execute("setView", new SampleView(), 'content', true);
 
         }
 

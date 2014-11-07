@@ -1,4 +1,8 @@
-define('system/core/marionette.my.behavior', function(){
+define('system/core/marionette.my.behavior',
+    [
+        'application/config/config'
+    ],
+    function(config){
 
     if( !Backbone.Marionette.My ){
         Backbone.Marionette.My = {};

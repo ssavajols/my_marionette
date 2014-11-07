@@ -3,16 +3,15 @@
  */
 define('application/module/module_pixi/controller/controller',
     [
-        "system/core/ma_controller",
         "application/module/module_pixi/view/pixi_composite_view"
     ],
-    function(MA_controller, PixiCompositeView){
+    function(PixiCompositeView){
 
-    var controller = MA_controller.extend({
+    var controller = Backbone.Marionette.Controller.extend({
 
         index: function(){
 
-            this.channel.commands.execute("setView", new PixiCompositeView(), 'content', true);
+            Backbone.Marionette.My.messageBus.global.commands.execute("setView", new PixiCompositeView(), 'content', true);
 
         },
 

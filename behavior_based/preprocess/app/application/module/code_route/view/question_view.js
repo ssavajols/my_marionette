@@ -1,25 +1,17 @@
 define('application/module/code_route/view/question_view',
     [
-        "system/core/ma_item_view",
         "application/module/code_route/collection/question_collection",
-        "application/behavior/image_loader"
     ],
-    function(MA_itemView, QuestionCollection, BehaviorImageLoader){
+    function(QuestionCollection){
 
 
-        var QuestionView = MA_itemView.extend({
+        var QuestionView = Backbone.Marionette.My.ItemView.extend({
             template:"#question",
             ui: {
                 "form": ".response-form"
             },
             events: {
                 "submit @ui.form": "submitForm"
-            },
-
-            behaviors: {
-                imageLoader: {
-                    behaviorClass: BehaviorImageLoader
-                }
             },
 
             collection: new QuestionCollection(),
@@ -30,7 +22,7 @@ define('application/module/code_route/view/question_view',
                     this.setQuestion();
                 }, this));
 
-                MA_itemView.prototype.initialize.apply(this, arguments);
+                Backbone.Marionette.My.ItemView.prototype.initialize.apply(this, arguments);
             },
 
             setQuestion: function(){
@@ -43,7 +35,7 @@ define('application/module/code_route/view/question_view',
             render: function(){
 
                 if( this.model ){
-                    MA_itemView.prototype.render.apply(this, arguments);
+                    Backbone.Marionette.My.ItemView.prototype.render.apply(this, arguments);
                 }
 
             },
@@ -85,7 +77,7 @@ define('application/module/code_route/view/question_view',
 
                 });
 
-                this.channel.vent.trigger('end', {isValid: isValid});
+                Backbone.Marionette.My.messageBus.global.vent.trigger('end', {isValid: isValid});
             }
         });
 

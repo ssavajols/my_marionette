@@ -43,5 +43,4 @@ define('system/core/marionette.my.item_view',
         onAfterRender: $.noop
     });
 
-    return View;
 });

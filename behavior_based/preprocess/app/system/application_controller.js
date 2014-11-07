@@ -20,6 +20,7 @@ define('system/application_controller',
 
             runModule: function(routeName){
 
+                console.log(routeName);
                 var moduleName;
 
                 if( this.moduleRoutes && this.moduleRoutes[routeName] ){
@@ -29,6 +30,7 @@ define('system/application_controller',
                 _.each(this.moduleRoutes, function(routes, module){
                     moduleName = _.indexOf(routes, routeName) != -1 ? module : moduleName;
                 });
+                console.log(moduleName);
 
                 if( !moduleName || !this.application[moduleName] ){
                     this.index.apply(this, arguments);

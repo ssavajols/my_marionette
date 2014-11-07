@@ -1,11 +1,9 @@
 define('application/module/code_route/view/layout',
     [
-        "system/core/ma_layout",
-        "application/core/my_region_transition"
     ],
-    function(MA_layout, MY_regionTransition){
+    function(){
 
-        var Layout = MA_layout.extend({
+        var Layout = Backbone.Marionette.My.LayoutView.extend({
             template:"#layout",
 
             className: "code-route",

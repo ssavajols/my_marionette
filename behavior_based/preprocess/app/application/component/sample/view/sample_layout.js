@@ -3,12 +3,11 @@
  */
 define('application/component/sample/view/sample_layout',
     [
-        "system/core/ma_layout",
         "application/behavior/twig"
     ],
-    function(MA_layout, Twig){
+    function(Twig){
 
-        var SampleView = MA_layout.extend({
+        var SampleView = Backbone.Marionette.My.LayoutView.extend({
             template: "subdir/tpl",
             events:{
                 "click .action": "clickMethod"
@@ -18,7 +17,7 @@ define('application/component/sample/view/sample_layout',
                 this.model = new Backbone.Model();
                 this.model.set('message', 'this is a message from backbone model');
 
-                MA_layout.prototype.initialize.apply(this, arguments);
+                Backbone.Marionette.My.LayoutView.prototype.initialize.apply(this, arguments);
             },
             behaviors: {
                twig: {
