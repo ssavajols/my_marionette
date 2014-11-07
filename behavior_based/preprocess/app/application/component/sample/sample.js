@@ -9,16 +9,14 @@
 define('application/component/sample/sample',
     [
         "system/application",
-        "system/core/ma_module",
         "application/component/sample/view/sample_layout"
     ],
-    function(Application, MA_module, SampleLayout){
+    function(Application, SampleLayout){
 
         Application.module('sample', {
-            moduleClass: MA_module,
             initialize: function(){
 
-                this.channel.commands.execute('setView', new SampleLayout(), 'header');
+                Backbone.Marionette.My.messageBus.global.commands.execute('setView', new SampleLayout(), 'header');
 
                 Backbone.Marionette.Module.prototype.initialize.apply(this, arguments);
             }

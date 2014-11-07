@@ -2,12 +2,9 @@
  *
  */
 define('application/behavior/twig',
-    [
-        "system/core/ma_behavior"
-    ],
-    function(MA_behavior){
+    function(){
 
-        var Behavior = MA_behavior.extend({
+        var Behavior = Backbone.Marionette.My.Behavior.extend({
 
             initialize: function(){
                 if( typeof this.view.template === "string"){

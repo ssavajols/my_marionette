@@ -3,17 +3,16 @@
  */
 define('system/application_layout',
     [
-        "system/core/ma_layout",
-        "system/core/ma_region_transition"
+        "system/core/marionette.my.layoutview"
     ],
-    function(MA_layout, MA_regionTransition){
+    function(){
 
-    var Layout = MA_layout.extend({
+    var Layout = Backbone.Marionette.My.LayoutView.extend({
 
         regions: {
-            header: new MA_regionTransition({el:"#header"}),
-            content: new MA_regionTransition({el:"#content"}),
-            footer: new MA_regionTransition({el:"#footer"})
+            header: new Backbone.Marionette.My.Region({el:"#header"}),
+            content: new Backbone.Marionette.My.Region({el:"#content"}),
+            footer: new Backbone.Marionette.My.Region({el:"#footer"})
         },
 
         initialize: function(){

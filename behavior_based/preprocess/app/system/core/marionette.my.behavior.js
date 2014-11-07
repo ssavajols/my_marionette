@@ -1,13 +1,10 @@
-/**
- * Core behavior class
- */
-define('system/core/ma_behavior',
-    [
-        "application/config/config"
-    ],
-    function(config){
+define('system/core/marionette.my.behavior', function(){
 
-    var Behavior = Backbone.Marionette.Behavior.extend({
+    if( !Backbone.Marionette.My ){
+        Backbone.Marionette.My = {};
+    }
+
+    Backbone.Marionette.My.Behavior = Backbone.Marionette.Behavior.extend({
 
         channel: Backbone.Wreqr.radio.channel(config.globalChannelName || 'global'),
 
@@ -32,5 +29,4 @@ define('system/core/ma_behavior',
         onScroll: $.noop
     });
 
-    return Behavior;
 });

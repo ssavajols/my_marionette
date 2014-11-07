@@ -1,21 +1,22 @@
-define('system/core/ma_region_transition',
+define('system/core/marionette.my.region',
     [
-        'system/core/ma_region'
+        "system/behavior/region/transitions"
     ],
-    function(MA_region){
+    function(Transitions){
 
-        var RegionTransition = MA_region.extend({
 
-            transitions: {
-                fade: function(currentView, view, callback){
+        if( !Backbone.Marionette.My ){
+            Backbone.Marionette.My = {};
+        }
 
-                    TweenLite.to(currentView.$el, 0, {display:"none"});
-                    TweenLite.fromTo(view.$el, 1, { opacity: 0}, {opacity:1, delay:0.05, onComplete: function(){ callback();}});
+        Backbone.Marionette.My.Region= Backbone.Marionette.Region.extend({
 
-                },
-                cut: function(currentView, view, callback){
-                    callback();
-                }
+            transitions: {},
+
+            behaviors: {
+               transitions: {
+                   behaviorClass: Transitions
+               }
             },
 
             addTransition: function(name, func){
@@ -145,7 +146,7 @@ define('system/core/ma_region_transition',
 
         });
 
-        return RegionTransition;
+        return Transition;
 
     });
 

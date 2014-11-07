@@ -4,21 +4,20 @@
 define('system/application_router',
 
     [
-        "system/core/ma_app_router",
         "system/application_controller",
         "application/config/module_routes"
     ],
 
-    function(MA_app_router, Controller, moduleRoutes){
+    function(Controller, moduleRoutes){
 
-        var Router = MA_app_router.extend({
+        var Router = Backbone.Marionette.Router.extend({
 
             initialize: function(options){
 
                 this.controller = new Controller(options);
                 this.controller.moduleRoutes = this.moduleRoutes;
 
-                MA_app_router.prototype.initialize.apply(this, arguments);
+                Backbone.Marionette.Router.prototype.initialize.apply(this, arguments);
             },
 
             appRoutes: {

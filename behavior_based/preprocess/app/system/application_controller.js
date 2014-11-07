@@ -2,12 +2,9 @@
  * Global application controller
  */
 define('system/application_controller',
-    [
-        'system/core/ma_controller'
-    ],
-    function(MA_controller){
+    function(){
 
-        var Controller = MA_controller.extend({
+        var Controller = Backbone.Marionette.Controller.extend({
 
             initialize: function(options){
                 this.options = options.opt;
