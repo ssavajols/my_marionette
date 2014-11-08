@@ -4,11 +4,12 @@
 define('system/application_initializer',
     [
         "system/application",
+        "system/application_message_bus",
         "system/application_router",
         "system/application_layout",
         "application/config/config"
     ],
-    function(Application, Router, Layout, config){
+    function(Application, messageBus, Router, Layout, config){
 
     var appLayout = new Layout();
 
@@ -26,42 +27,42 @@ define('system/application_initializer',
     // EVENTS
     Application.addInitializer(function(){
         $(window).on('scroll', function(event){
-            Application.vent.trigger("custom:scroll", event);
+            messageBus.vent.trigger("custom:scroll", event);
         });
 
         $(window).on('resize', function(event){
-            Application.vent.trigger("custom:resize", event);
+            messageBus.vent.trigger("custom:resize", event);
         });
     });
 
    // COMMANDS
     Application.addInitializer(function(){
-       Application.commands.setHandler("setView", function(view, region, show, callback){
+        messageBus.commands.setHandler("setView", function(view, region, show, callback){
             appLayout.setView(view, region, show, callback);
        });
 
-        Application.commands.setHandler('removeView', function(region, hide, callback){
+        messageBus.commands.setHandler('removeView', function(region, hide, callback){
             appLayout.removeView(region, hide, callback);
         });
 
-        Application.commands.setHandler('fadeOut', function(region, callback){
+        messageBus.commands.setHandler('fadeOut', function(region, callback){
            appLayout.fadeOut(500, region, callback);
         });
 
-        Application.commands.setHandler('fadeIn', function(region, callback){
+        messageBus.commands.setHandler('fadeIn', function(region, callback){
            appLayout.fadeIn(500, region, callback);
         });
     });
 
     // RES REQ
     Application.addInitializer(function(){
-       Application.reqres.setHandler('getApp', function(){
+        messageBus.reqres.setHandler('getApp', function(){
           return Application;
        });
     });
 
     Application.addInitializer(function(){
-       Application.reqres.setHandler('getSettings', function(){
+        messageBus.reqres.setHandler('getSettings', function(){
           return config;
        });
     });

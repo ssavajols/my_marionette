@@ -5,9 +5,6 @@ define('system/application',
     [
         "application/config/config",
 
-        // Static objects
-        "system/application_message_bus",
-
         // Framework load classes
         "system/core/marionette.my.app_router",
         "system/core/marionette.my.application",

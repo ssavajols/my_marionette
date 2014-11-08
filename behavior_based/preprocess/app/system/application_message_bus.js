@@ -12,4 +12,5 @@ define('system/application_message_bus',
     Backbone.Marionette[config.namespace].messageBus = {};
     Backbone.Marionette[config.namespace].messageBus[config.globalChannelName] = Backbone.Wreqr.radio.channel(config.globalChannelName);
 
+    return Backbone.Marionette[config.namespace].messageBus[config.globalChannelName];
 });
