@@ -1,4 +1,4 @@
-define('system/static/marionette.my.message_bus.global',
+define('system/application_message_bus',
     [
         'application/config/config'
     ],

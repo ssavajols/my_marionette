@@ -6,7 +6,7 @@ define('system/application',
         "application/config/config",
 
         // Static objects
-        "system/static/marionette.my.message_bus.global",
+        "system/application_message_bus",
 
         // Framework load classes
         "system/core/marionette.my.app_router",
