@@ -8,9 +8,11 @@
     <div class="question-label">{{ question }}</div>
     <div class="response-wrapper">
 
-        {{#each responses }}
-            <div class="response-label"><input type="checkbox" value="{{ value }}" name="responses" id="response-{{ value }}" /><label for="response-{{ value }}">{{ text }}</label></div>
-        {{/each}}
+        <div class="row">
+            {{#each responses }}
+                <div class="response-label col-sm-6"><input type="checkbox" value="{{ value }}" name="responses" id="response-{{ value }}" /><label for="response-{{ value }}">{{ text }}</label></div>
+            {{/each}}
+        </div>
     </div>
     <input type="submit" class="btn btn-transparent pull-right" value="Valider"/>
 </form>
