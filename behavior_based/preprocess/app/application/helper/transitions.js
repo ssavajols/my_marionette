@@ -2,15 +2,9 @@ define('application/helper/transitions', function () {
 
     return {
 
-        fade: function(currentView, view, callback){
-
-            var baseTop = 95;
-            var baseLeft = 20;
-
-            TweenLite.fromTo(currentView.$el, 0.25, {zIndex:1}, {opacity: 0});
-
-            TweenLite.fromTo(view.$el, 1, { zIndex:2, width:view.$el.parent().width(), height:view.$el.parent().height(), opacity: 0, position: "absolute", left:baseLeft, top:baseTop}, {opacity:1, delay:0.05, onComplete: function(){
-                view.$el.removeAttr('style');
+        fade: function (currentView, view, callback) {
+            TweenLite.to(currentView.$el, 0, {display: "none"});
+            TweenLite.fromTo(view.$el, 1, { opacity: 0}, {opacity: 1, delay: 0.05, onComplete: function () {
                 callback();
             }});
 

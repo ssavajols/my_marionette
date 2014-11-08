@@ -11,7 +11,7 @@ define('application/module/module_pixi/controller/controller',
 
         index: function(){
 
-            Marionette.My.messageBus.global.commands.execute("setView", new PixiCompositeView(), 'content', true);
+            Marionette.My.messageBus.global.commands.execute("setView", new PixiCompositeView(), 'content', {transition:'fade'});
 
         },
 

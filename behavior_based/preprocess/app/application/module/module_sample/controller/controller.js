@@ -11,7 +11,7 @@ define('application/module/module_sample/controller/controller',
 
         index: function(){
 
-            Marionette.My.messageBus.global.commands.execute("setView", new SampleView(), 'content', true);
+            Marionette.My.messageBus.global.commands.execute("setView", new SampleView(), 'content', {transition: 'fade'});
 
         }
 

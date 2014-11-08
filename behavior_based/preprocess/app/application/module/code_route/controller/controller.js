@@ -24,7 +24,7 @@ define('application/module/code_route/controller/controller',
 
             this.layout = new LayoutView();
 
-            Marionette.My.messageBus.global.commands.execute('setView', this.layout, 'content', 'fade');
+            Marionette.My.messageBus.global.commands.execute('setView', this.layout, 'content', {transition: 'fade'});
 
             this.i18nModel = new I18nModel();
 

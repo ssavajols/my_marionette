@@ -8,6 +8,8 @@ define('application/module/code_route/view/layout',
 
             className: "code-route",
 
+            regionClass: Marionette.My.Region,
+
             regions: {
                 header: ".layout-header",
                 content: ".layout-content",
