@@ -8,24 +8,15 @@ define('system/core/marionette.my.layout_view',
     function(config){
 
 
-    if( !Backbone.Marionette.My ){
-        Backbone.Marionette.My = {};
+    if( !Marionette.My ){
+        Marionette.My = {};
     }
 
         Backbone.Marionette.My.LayoutView = Backbone.Marionette.LayoutView.extend({
 
-        channel: Backbone.Wreqr.radio.channel(config.globalChannelName || 'global'),
-
         template: false,
 
-        regionClass: Backbone.Marionette.My.Region,
-
-        render: function(){
-
-            Backbone.Marionette.LayoutView.prototype.render.apply(this, arguments);
-
-            _.defer(_.bind(this.onAfterRender,this));
-        },
+        regionClass: Marionette.My.Region,
 
         removeView: function(region, callback){
 
@@ -53,7 +44,6 @@ define('system/core/marionette.my.layout_view',
             }
         },
 
-        onAfterRender: $.noop
 
     });
 

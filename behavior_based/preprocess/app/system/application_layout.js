@@ -3,16 +3,17 @@
  */
 define('system/application_layout',
     [
+        "application/config/config",
         "system/core/marionette.my.layout_view"
     ],
-    function(){
+    function(config){
 
-    var Layout = Backbone.Marionette.My.LayoutView.extend({
+    var Layout = Marionette[config.namespace].LayoutView.extend({
 
         regions: {
-            header: new Backbone.Marionette.My.Region({el:"#header"}),
-            content: new Backbone.Marionette.My.Region({el:"#content"}),
-            footer: new Backbone.Marionette.My.Region({el:"#footer"})
+            header: new Marionette[config.namespace].Region({el:"#header"}),
+            content: new Marionette[config.namespace].Region({el:"#content"}),
+            footer: new Marionette[config.namespace].Region({el:"#footer"})
         },
 
         initialize: function(){
@@ -22,7 +23,7 @@ define('system/application_layout',
 
             this.$el.append('<div id="modal"></div>');
 
-            Backbone.Marionette.My.LayoutView.prototype.initialize.apply(this, arguments);
+            Marionette[config.namespace].LayoutView.prototype.initialize.apply(this, arguments);
         }
     });
 

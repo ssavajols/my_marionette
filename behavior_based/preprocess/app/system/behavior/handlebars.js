@@ -1,10 +1,13 @@
 /**
  *
  */
-define('application/behavior/handlebars',
-    function(){
+define('system/behavior/handlebars',
+    [
+        "application/config/config"
+    ],
+    function(config){
 
-        var Behavior = Backbone.Marionette.My.Behavior.extend({
+        var Behavior = Marionette[config.namespace].Behavior.extend({
 
             initialize: function(){
                 if( typeof this.view.template === "string"){

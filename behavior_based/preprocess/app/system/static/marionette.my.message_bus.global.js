@@ -5,13 +5,11 @@ define('system/static/marionette.my.message_bus.global',
     function(config){
 
 
-    if( !Backbone.Marionette.My ){
-        Backbone.Marionette.My = {};
+    if( !Marionette[config.namespace] ){
+        Marionette[config.namespace] = {};
     }
 
-    var channelName = config.globalChannelName || 'global';
-
-    Backbone.Marionette.My.messageBus = {};
-    Backbone.Marionette.My.messageBus[channelName] = Backbone.Wreqr.radio.channel(channelName);
+    Backbone.Marionette[config.namespace].messageBus = {};
+    Backbone.Marionette[config.namespace].messageBus[config.globalChannelName] = Backbone.Wreqr.radio.channel(config.globalChannelName);
 
 });

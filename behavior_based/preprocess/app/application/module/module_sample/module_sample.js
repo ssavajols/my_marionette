@@ -21,12 +21,13 @@ define('application/module/module_sample/module_sample',
 
         Application.module('module_sample', {
             startWithParent: false,
+            moduleClass: Marionette.My.Module,
             initialize: function(options){
                 this.on('start', function(baseRoute){
                    new Router(baseRoute);
                 });
 
-                Backbone.Marionette.Module.prototype.initialize.apply(this, arguments);
+                Marionette.My.Module.prototype.initialize.apply(this, arguments);
             }
         });
 

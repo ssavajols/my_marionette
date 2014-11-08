@@ -3,10 +3,11 @@
  */
 define('system/application_controller',
     [
+        "application/config/config"
     ],
-    function(MA_controller){
+    function(config){
 
-        var Controller = Backbone.Marionette.Controller.extend({
+        var Controller = Marionette[config.namespace].Controller.extend({
 
             initialize: function(options){
                 this.options = options.opt;

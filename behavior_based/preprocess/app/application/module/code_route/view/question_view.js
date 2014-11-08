@@ -1,11 +1,11 @@
 define('application/module/code_route/view/question_view',
     [
-        "application/module/code_route/collection/question_collection",
+        "application/module/code_route/collection/question_collection"
     ],
     function(QuestionCollection){
 
 
-        var QuestionView = Backbone.Marionette.My.ItemView.extend({
+        var QuestionView = Marionette.My.ItemView.extend({
             template:"#question",
             ui: {
                 "form": ".response-form"
@@ -77,7 +77,7 @@ define('application/module/code_route/view/question_view',
 
                 });
 
-                Backbone.Marionette.My.messageBus.global.vent.trigger('end', {isValid: isValid});
+                Marionette.My.messageBus.global.vent.trigger('end', {isValid: isValid});
             }
         });
 

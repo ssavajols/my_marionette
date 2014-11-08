@@ -7,11 +7,11 @@ define('application/module/module_sample/controller/controller',
     ],
     function(SampleView){
 
-    var controller = Backbone.Marionette.Controller.extend({
+    var controller = Marionette.My.Controller.extend({
 
         index: function(){
 
-            Backbone.Marionette.My.messageBus.global.commands.execute("setView", new SampleView(), 'content', true);
+            Marionette.My.messageBus.global.commands.execute("setView", new SampleView(), 'content', true);
 
         }
 

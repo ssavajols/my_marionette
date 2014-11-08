@@ -11,6 +11,14 @@ define('application/config/config',
              */
             name: "sample project",
 
+            /*
+            * Namespace for core extended classes container
+            * ex:
+            *   Marionette.My.ItemView
+            *   Marionette.My.Behavior
+             */
+            namespace: "My",
+
             /**
              * Base url for backbone routes
              */

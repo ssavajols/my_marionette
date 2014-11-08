@@ -3,7 +3,7 @@ define('application/module/code_route/view/layout',
     ],
     function(){
 
-        var Layout = Backbone.Marionette.My.LayoutView.extend({
+        var Layout = Marionette.My.LayoutView.extend({
             template:"#layout",
 
             className: "code-route",

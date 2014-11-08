@@ -7,7 +7,7 @@ define('application/module/module_pixi/router/router',
     ],
     function(Controller){
 
-        var Router = Backbone.Marionette.SubRouter.extend({
+        var Router = Marionette.My.SubRouter.extend({
 
             initialize: function(options){
                 this.controller = new Controller(options);

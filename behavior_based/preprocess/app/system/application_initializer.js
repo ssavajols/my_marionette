@@ -68,8 +68,8 @@ define('system/application_initializer',
 
     // BEHAVIORS LOOKUP
     Application.addInitializer(function(){
-       Backbone.Marionette.Behaviors.behaviorsLookup = function(){
-           return Backbone.Marionette.Behaviors.behaviorsStore;
+       Marionette[config.namespace].Behaviors.behaviorsLookup = function(){
+           return Marionette[config.namespace].BehaviorsLookup;
        };
     });
 

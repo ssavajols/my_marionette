@@ -9,10 +9,11 @@
  */
 define('system/behavior/modal',
     [
+        "application/config/config"
     ],
-    function(MA_behavior){
+    function(config){
 
-        var Behavior = Backbone.Marionette.My.Behavior.extend({
+        var Behavior = Marionette[config.namespace].Behavior.extend({
 
             events: {
                 "click .close-modal": "closeModal",
@@ -21,23 +22,23 @@ define('system/behavior/modal',
 
             initialize: function(){
 
-               Backbone.Marionette.My.messageBus.global.commands.setHandler('modal:open', this.openModal);
+               Marionette[config.namespace].messageBus[config.globalChannelName].commands.setHandler('modal:open', this.openModal);
 
-                Backbone.Marionette.My.Behavior.prototype.initialize.apply(this, arguments);
+                Marionette[config.namespace].Behavior.prototype.initialize.apply(this, arguments);
             },
 
             openModal: function(event){
 
                 this.triggerViewMethod("onBeforeOpenModal", arguments);
 
-                Backbone.Marionette.My.messageBus.global.commands.execute("fadeIn", "modal", _.bind(function(){this.triggerViewMethod("onAfterOpenModal", arguments);}, this, event));
+                Marionette[config.namespace].messageBus[config.globalChannelName].commands.execute("fadeIn", "modal", _.bind(function(){this.triggerViewMethod("onAfterOpenModal", arguments);}, this, event));
             },
 
             closeModal: function(event){
 
                 this.triggerViewMethod("onBeforeCloseModal", arguments);
 
-                Backbone.Marionette.My.messageBus.global.commands.execute("fadeIn", "modal", _.bind(function(){this.triggerViewMethod("onAfterCloseModal", arguments);}, this, event));
+                Marionette[config.namespace].messageBus[config.globalChannelName].commands.execute("fadeIn", "modal", _.bind(function(){this.triggerViewMethod("onAfterCloseModal", arguments);}, this, event));
             }
         });
 

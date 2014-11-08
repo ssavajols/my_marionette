@@ -9,22 +9,22 @@ define('application/module/code_route/controller/controller',
     ],
     function(LayoutView, StartView, EndView, QuestionView, I18nModel){
 
-    var controller = Backbone.Marionette.Controller.extend({
+    var controller = Marionette.My.Controller.extend({
 
         timer: {},
 
         layout: null,
 
         initialize: function(){
-            Backbone.Marionette.My.messageBus.global.vent.on('btnStart', _.bind(this.hideModal, this));
-            Backbone.Marionette.My.messageBus.global.vent.on('end', _.bind(this.questionEnd, this));
+            Marionette.My.messageBus.global.vent.on('btnStart', _.bind(this.hideModal, this));
+            Marionette.My.messageBus.global.vent.on('end', _.bind(this.questionEnd, this));
         },
 
         index: function(){
 
             this.layout = new LayoutView();
 
-            Backbone.Marionette.My.messageBus.global.commands.execute('setView', this.layout, 'content', 'fade');
+            Marionette.My.messageBus.global.commands.execute('setView', this.layout, 'content', 'fade');
 
             this.i18nModel = new I18nModel();
 

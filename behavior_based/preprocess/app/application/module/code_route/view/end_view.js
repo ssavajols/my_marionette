@@ -4,7 +4,7 @@ define('application/module/code_route/view/end_view',
     function(){
 
 
-        var EndView = Backbone.Marionette.My.ItemView.extend({
+        var EndView = Marionette.My.ItemView.extend({
             template:"#result",
 
             initialize: function(options){

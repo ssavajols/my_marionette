@@ -8,13 +8,14 @@ define('application/module/code_route/code_route',
 
         Application.module('code_route', {
             startWithParent: false,
+            moduleClass: Marionette.My.Module,
             initialize: function(options){
 
                 this.on('start', function(baseRoute){
                    new Router(baseRoute);
                 });
 
-                Backbone.Marionette.Module.prototype.initialize.apply(this, arguments);
+                Marionette.My.Module.prototype.initialize.apply(this, arguments);
             }
         });
 

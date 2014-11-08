@@ -1,9 +1,10 @@
-define('application/behavior/pixi',
+define('system/behavior/pixi',
     [
+        "application/config/config"
     ],
-    function(){
+    function(config){
 
-        var Behavior = Backbone.Marionette.My.Behavior.extend({
+        var Behavior = Marionette[config.namespace].Behavior.extend({
 
             events: {
                 "mousemove canvas": "onUserInteraction",
@@ -27,7 +28,21 @@ define('application/behavior/pixi',
              *
              */
             onBeforeShow: function(){
-                this.$el.append('<canvas></canvas>');
+
+                this.stage = new PIXI.Stage(0x000000);
+                var rendererOptions = {
+                    antialiasing:false,
+                    transparent:false,
+                    resolution:window.devicePixelRatio || 1
+                };
+
+                this.renderer = new PIXI[this.renderMode](800, 600, rendererOptions);
+
+                this.$el.append(this.renderer.view);
+
+                _.defer(_.bind(this.onResize, this));
+
+                this.triggerViewMethod('stageReady', this.stage);
 
                 if( this.autoStart ){
                     this.start();
@@ -39,11 +54,13 @@ define('application/behavior/pixi',
              */
             initialize: function(){
 
-                this.view.on('destroy', _.bind(this.onDestroy, this));
+                this.view.on('beforeDestroy', _.bind(this.onBeforeDestroy, this));
 
                 this.autoStart = this.options.autoStart !== false;
+                this.renderMode = this.options.renderMode ? this.options.renderMode : "autoDetectRenderer";
+                this.antialiasing = this.options.antialiasing ? this.options.antialiasing : true;
 
-                Backbone.Marionette.My.Behavior.prototype.initialize.apply(this);
+                Marionette[config.namespace].Behavior.prototype.initialize.apply(this);
             },
 
             /**
@@ -76,7 +93,7 @@ define('application/behavior/pixi',
             /**
              *
              */
-            onDestroy: function(){
+            onBeforeDestroy: function(){
                 this.stop();
             },
 
@@ -86,7 +103,14 @@ define('application/behavior/pixi',
              */
             onResize: function(event){
 
-                this.triggerViewMethod('resize', event);
+                var customEvent = event || {};
+
+                customEvent.width = this.$el.width();
+                customEvent.height = this.$el.height();
+
+                this.renderer.resize(customEvent.width, customEvent.height);
+
+                this.triggerViewMethod('resize', customEvent);
 
             },
 
@@ -94,6 +118,8 @@ define('application/behavior/pixi',
              *
              */
             onUpdate: function(){
+
+                this.renderer.render(this.stage);
 
                 this.triggerViewMethod('update', {});
 

@@ -4,13 +4,11 @@ define('system/core/marionette.my.behavior',
     ],
     function(config){
 
-    if( !Backbone.Marionette.My ){
-        Backbone.Marionette.My = {};
+    if( !Marionette[config.namespace] ){
+        Marionette[config.namespace] = {};
     }
 
-    Backbone.Marionette.My.Behavior = Backbone.Marionette.Behavior.extend({
-
-        channel: Backbone.Wreqr.radio.channel(config.globalChannelName || 'global'),
+    Marionette[config.namespace].Behavior = Marionette.Behavior.extend({
 
         triggerViewMethod: function(method, args){
 
@@ -19,18 +17,8 @@ define('system/core/marionette.my.behavior',
             if( this.view && this.view[methodName]){
                 this.view[methodName].call(this.view, args);
             }
-        },
+        }
 
-        initialize: function(){
-
-            this.channel.vent.on('custom:resize', _.bind(this.onResize, this));
-            this.channel.vent.on('custom:scroll', _.bind(this.onScroll, this));
-
-            Backbone.Marionette.Behavior.prototype.initialize.apply(this, arguments);
-        },
-
-        onResize: $.noop,
-        onScroll: $.noop
     });
 
 });

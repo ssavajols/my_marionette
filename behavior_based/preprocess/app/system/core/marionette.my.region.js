@@ -1,26 +1,28 @@
 define('system/core/marionette.my.region',
     [
-        "application/behavior/transitions"
+        "application/helper/transitions",
+        "application/config/config"
     ],
-    function(Transitions){
+    function(transitions, config){
 
-
-        if( !Backbone.Marionette.My ){
-            Backbone.Marionette.My = {};
+        if( !Marionette[config.namespace] ){
+            Marionette[config.namespace] = {};
         }
 
-        Backbone.Marionette.My.Region= Backbone.Marionette.Region.extend({
+        Marionette[config.namespace].Region= Marionette.Region.extend({
 
             transitions: {},
 
-            behaviors: {
-               transitions: {
-                   behaviorClass: Transitions
-               }
+            initialize: function(){
+                this.addTransitions(transitions);
             },
 
             addTransition: function(name, func){
                 this.transitions[name] = func;
+            },
+
+            addTransitions: function(t){
+                this.transitions = _.extend(this.transitions, t);
             },
 
             show: function(view, options) {
@@ -29,7 +31,7 @@ define('system/core/marionette.my.region',
                 this._ensureElement();
 
                 var showOptions = $.extend({
-                    transition: "fade"
+                    transition: "cut"
                 }, options || {});
 
                 var isDifferentView = view !== this.currentView;

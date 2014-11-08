@@ -7,11 +7,11 @@ define('application/module/module_pixi/controller/controller',
     ],
     function(PixiCompositeView){
 
-    var controller = Backbone.Marionette.Controller.extend({
+    var controller = Marionette.Controller.extend({
 
         index: function(){
 
-            Backbone.Marionette.My.messageBus.global.commands.execute("setView", new PixiCompositeView(), 'content', true);
+            Marionette.My.messageBus.global.commands.execute("setView", new PixiCompositeView(), 'content', true);
 
         },
 

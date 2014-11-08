@@ -1,9 +1,9 @@
 define('application/module/code_route/view/start_view',
     [
     ],
-    function(MouseMove){
+    function(){
 
-        var StartView = Backbone.Marionette.My.ItemView.extend({
+        var StartView = Marionette.My.ItemView.extend({
             template:"#intro",
 
             ui: {
@@ -14,14 +14,8 @@ define('application/module/code_route/view/start_view',
                 "click @ui.start": "startBtn"
             },
 
-            initialize: function(){
-
-                // OVERRIDE BASE VIEW METHODS
-//                MY_itemView.prototype.initialize.apply(this, arguments);
-            },
-
             startBtn: function(){
-              this.channel.vent.trigger("btnStart");
+              Marionette.My.messageBus.global.vent.trigger("btnStart");
             }
         });
 

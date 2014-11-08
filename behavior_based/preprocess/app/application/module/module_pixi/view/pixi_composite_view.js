@@ -3,12 +3,12 @@
  */
 define('application/module/module_pixi/view/pixi_composite_view',
     [
-        "application/behavior/pixi",
+        "system/behavior/pixi",
         "application/module/module_pixi/view/pixi_item_view"
     ],
     function(BehaviorPixi, PixiItemView){
 
-        var PixiView = Backbone.Marionette.My.CompositeView.extend({
+        var PixiView = Marionette.My.CompositeView.extend({
             template: $.noop,
             className: "container-canvas",
             behaviors: {
@@ -20,13 +20,13 @@ define('application/module/module_pixi/view/pixi_composite_view',
                 new PixiItemView();
             },
             onMousemove: function(event){
-                Backbone.Marionette.My.messageBus.global.vent.trigger('module_pixi:mousemove', event);
+                Marionette.My.messageBus.global.vent.trigger('module_pixi:mousemove', event);
             },
             onResize: function(event){
-                Backbone.Marionette.My.messageBus.global.vent.trigger('module_pixi:resize', event);
+                Marionette.My.messageBus.global.vent.trigger('module_pixi:resize', event);
             },
             onUpdate: function(){
-                Backbone.Marionette.My.messageBus.global.vent.trigger('module_pixi:update');
+                Marionette.My.messageBus.global.vent.trigger('module_pixi:update');
             }
 
         });
