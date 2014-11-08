@@ -2,7 +2,9 @@
  * Global application controller
  */
 define('system/application_controller',
-    function(){
+    [
+    ],
+    function(MA_controller){
 
         var Controller = Backbone.Marionette.Controller.extend({
 
@@ -10,17 +12,21 @@ define('system/application_controller',
                 this.options = options.opt;
                 this.application = options.app;
                 this.mainModule = options.opt.mainModule;
+                this.lastRouteName = null;
+                this.lastModule = null;
             },
 
             index: function(baseRoute){
+
                 if( this.application[this.mainModule]){
                     this.application.module(this.mainModule).start(baseRoute);
+                    this.lastRouteName = this.mainModule;
+                    this.lastModule = this.mainModule;
                 }
             },
 
             runModule: function(routeName){
 
-                console.log(routeName);
                 var moduleName;
 
                 if( this.moduleRoutes && this.moduleRoutes[routeName] ){
@@ -30,14 +36,21 @@ define('system/application_controller',
                 _.each(this.moduleRoutes, function(routes, module){
                     moduleName = _.indexOf(routes, routeName) != -1 ? module : moduleName;
                 });
-                console.log(moduleName);
+
 
                 if( !moduleName || !this.application[moduleName] ){
                     this.index.apply(this, arguments);
                 }
 
                 if( this.application[moduleName]){
+                    if( this.lastRouteName !== null && routeName !== this.lastRouteName ){
+                        this.application.module(this.lastModule).stop();
+                    }
+
                     this.application.module(moduleName).start(routeName);
+
+                    this.lastRouteName = routeName;
+                    this.lastModule = moduleName;
                 }
             }
         });
