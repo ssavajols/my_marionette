@@ -1,14 +1,21 @@
 define('application/module/code_route/view/layout',
     [
+        'system/behavior/handlebars'
     ],
-    function(){
+    function(BehaviorHandlebars){
 
         var Layout = Marionette.My.LayoutView.extend({
-            template:"#layout",
+            template:"application/module/code_route/view/template/layout",
 
             className: "code-route",
 
             regionClass: Marionette.My.Region,
+
+            behaviors: {
+                handlebars: {
+                    behaviorClass: BehaviorHandlebars
+                }
+            },
 
             regions: {
                 header: ".layout-header",

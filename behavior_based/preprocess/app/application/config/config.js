@@ -29,6 +29,17 @@ define('application/config/config',
              */
             container: "#container",
 
+            /**
+             * Global channel name for backbone radio
+             */
+            globalChannelName: "global",
+
+            /**
+             * Main module to load
+             *
+             * If no valid route, this module will be used by default
+             */
+            mainModule: "code_route",
 
             /**
              * Use routing with pushState or hash tag.
@@ -49,18 +60,6 @@ define('application/config/config',
                      </ifModule>
              *
              */
-            urlPushState: typeof window.enablePushState !== "undefined" ? window.enablePushState : Modernizr && Modernizr.history,
-
-            /**
-             * Main module to load
-             *
-             * If no valid route, this module will be used by default
-             */
-            mainModule: "code_route",
-
-            /**
-             * Global channel name for backbone radio
-             */
-            globalChannelName: "global"
+            urlPushState: typeof window.enablePushState !== "undefined" ? window.enablePushState : Modernizr && Modernizr.history
         };
     });

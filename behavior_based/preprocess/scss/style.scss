@@ -1,12 +1,11 @@
 @import "vars";
 @import "reset";
 
+@import "fontello";
+
+@import "bootstrap/bootstrap";
 @import "layout";
 @import "modal";
-
-@import "module/module_sample/module_sample";
-
-@import "module/module_pixi/module_pixi";
 
 @import "module/code_route/question";
 @import "module/code_route/start_end";

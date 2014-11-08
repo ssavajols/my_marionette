@@ -1,16 +1,25 @@
 define('application/module/code_route/view/end_view',
     [
+        'system/behavior/handlebars'
     ],
-    function(){
+    function(BehaviorHandlebars){
 
 
         var EndView = Marionette.My.ItemView.extend({
-            template:"#result",
+            template:"application/module/code_route/view/template/result",
+
+            className: "result",
+
+            behaviors: {
+                handlebars: {
+                    behaviorClass: BehaviorHandlebars
+                }
+            },
 
             initialize: function(options){
 
                 this.serializeData = _.bind(function(){
-                    return {result: this[options.isValid ? "getOkText" : "getKoText"]()};
+                    return {result: this[options.isValid ? "getOkText" : "getKoText"](), validClass: options.isValid ? "icon-ok-circled" : "icon-cancel-circled"};
                 }, this);
             },
 

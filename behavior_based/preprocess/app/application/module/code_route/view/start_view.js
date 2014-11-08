@@ -1,10 +1,13 @@
 define('application/module/code_route/view/start_view',
     [
+        'system/behavior/handlebars'
     ],
-    function(){
+    function(BehaviorHandlebars){
 
         var StartView = Marionette.My.ItemView.extend({
-            template:"#intro",
+            template:"application/module/code_route/view/template/intro",
+
+            className: "introduction",
 
             ui: {
                 start: ".start"
@@ -12,6 +15,12 @@ define('application/module/code_route/view/start_view',
 
             events: {
                 "click @ui.start": "startBtn"
+            },
+
+            behaviors: {
+                handlebars: {
+                    behaviorClass: BehaviorHandlebars
+                }
             },
 
             startBtn: function(){

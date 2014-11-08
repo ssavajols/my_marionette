@@ -1,17 +1,24 @@
 define('application/module/code_route/view/question_view',
     [
-        "application/module/code_route/collection/question_collection"
+        "application/module/code_route/collection/question_collection",
+        'system/behavior/handlebars'
     ],
-    function(QuestionCollection){
+    function(QuestionCollection, BehaviorHandlebars){
 
 
         var QuestionView = Marionette.My.ItemView.extend({
-            template:"#question",
+            template:"application/module/code_route/view/template/question",
             ui: {
                 "form": ".response-form"
             },
             events: {
                 "submit @ui.form": "submitForm"
+            },
+
+            behaviors: {
+                handlebars: {
+                    behaviorClass: BehaviorHandlebars
+                }
             },
 
             collection: new QuestionCollection(),
@@ -22,7 +29,13 @@ define('application/module/code_route/view/question_view',
                     this.setQuestion();
                 }, this));
 
+                Marionette.My.messageBus.global.vent.on('updateTimer', _.bind(this.updateTime, this));
+
                 Backbone.Marionette.My.ItemView.prototype.initialize.apply(this, arguments);
+            },
+
+            updateTime: function(t){
+                this.$el.find('.progress').width(t+"%");
             },
 
             setQuestion: function(){

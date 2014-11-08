@@ -12,11 +12,8 @@ define('application/config/module_routes', function(){
      */
     var module_routes = {
 
-        "code_route": ["code_route", "page", "abc"],
+       "code_route": ["code_route"]
 
-        "module_sample": ["test", "sample"],
-
-        "module_pixi": ["pixi"]
     };
 
     return module_routes;

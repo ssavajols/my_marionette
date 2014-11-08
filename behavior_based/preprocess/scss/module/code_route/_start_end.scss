@@ -1,0 +1,55 @@
+.introduction,
+.result {
+
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #333333;
+  background: rgba(0, 0, 0, 0.3);
+  text-align: center;
+
+  &:after {
+    content:'';
+    width:0;
+    height: 100%;
+    vertical-align: middle;
+    display: inline-block;
+  }
+
+  .result-wrapper,
+  .intro-wrapper {
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+    vertical-align: middle;
+    display: inline-block;
+    margin:0 auto;
+
+    padding: 30px;
+
+    background: white;
+
+  }
+
+    .icon-facebook {
+      margin-left: 10px;
+      padding: 5px 10px 5px 0px;
+      vertical-align: top;
+
+      &:before{
+        font-size: 19px;
+      }
+
+    }
+
+  .result-wrapper h1 {
+
+    &:before {
+      color: red;
+    }
+
+    &.icon-ok-circled {
+      &:before {
+        color: green;
+      }
+    }
+  }
+}

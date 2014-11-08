@@ -9,47 +9,56 @@ define('application/module/code_route/controller/controller',
     ],
     function(LayoutView, StartView, EndView, QuestionView, I18nModel){
 
-    var controller = Marionette.My.Controller.extend({
+        var controller;
+        controller = Marionette.My.Controller.extend({
 
-        timer: {},
+            timer: {},
 
-        layout: null,
+            layout: null,
 
-        initialize: function(){
-            Marionette.My.messageBus.global.vent.on('btnStart', _.bind(this.hideModal, this));
-            Marionette.My.messageBus.global.vent.on('end', _.bind(this.questionEnd, this));
-        },
+            initialize: function () {
+                Marionette.My.messageBus.global.vent.on('btnStart', _.bind(this.hideModal, this));
+                Marionette.My.messageBus.global.vent.on('end', _.bind(this.questionEnd, this));
+            },
 
-        index: function(){
+            index: function () {
 
-            this.layout = new LayoutView();
+                this.layout = new LayoutView();
 
-            Marionette.My.messageBus.global.commands.execute('setView', this.layout, 'content', {transition: 'fade'});
+                Marionette.My.messageBus.global.commands.execute('setView', this.layout, 'content', {transition: 'fade'});
 
-            this.i18nModel = new I18nModel();
+                this.i18nModel = new I18nModel();
 
-            this.i18nModel.fetch().then(_.bind(function(){
-                clearTimeout(this.timer.started);
-                this.layout.setView(new StartView({model: this.i18nModel}), 'content', {transition:"fade"});
-            }, this));
+                this.i18nModel.fetch().then(_.bind(function () {
+                    clearInterval(this.timer.interval);
+                    this.layout.setView(new StartView({model: this.i18nModel}), 'content', {transition: "fade"});
+                }, this));
 
-        },
+            },
 
-        hideModal: function(){
+            hideModal: function () {
 
-            this.layout.setView(new QuestionView(),'content', {transition:'fade'});
+                this.layout.setView(new QuestionView(), 'content', {transition: 'fade'});
 
-            clearTimeout(this.timer.started);
-            this.timer.started = setTimeout(_.bind(this.questionEnd, this), 1000*60);
+                this.currentTime = 0;
 
-        },
+                clearInterval(this.timer.interval);
+                this.timer.interval = setInterval(_.bind(function () {
+                    this.currentTime++;
+                    Marionette.My.messageBus.global.vent.trigger('updateTimer', 100/30*this.currentTime);
+                    if( this.currentTime > 30 ){
+                        this.questionEnd();
+                    }
+                }, this), 1000);
 
-        questionEnd: function(event){
-            clearTimeout(this.timer.started);
-            this.layout.setView(new EndView({isValid: event && event.isValid || false, model: this.i18nModel}), 'content', {transition:'fade'});
-        }
+            },
 
-    });
+            questionEnd: function (event) {
+                clearInterval(this.timer.interval);
+                this.layout.setView(new EndView({isValid: event && event.isValid || false, model: this.i18nModel}), 'content', {transition: 'fade'});
+            }
+
+        });
 
     return controller;
 
