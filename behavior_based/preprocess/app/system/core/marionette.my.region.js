@@ -27,8 +27,6 @@ define('system/core/marionette.my.region',
 
             show: function(view, options) {
 
-
-                console.log(options);
                 this._ensureElement();
 
                 var showOptions = $.extend({
