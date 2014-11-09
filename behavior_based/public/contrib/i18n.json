@@ -1,11 +1,14 @@
 {
     "name": "abc",
     "resultOkText": [
-            "Vous êtes trop fort !!!",
-            "Vous êtes fort !!!"
+            "Félicitations",
+            "Vous avez réussi",
+            "Bien joué",
+            "Vous êtes un bon conducteur malgrés tout"
         ],
     "resultKoText": [
-            "Vous êtes un gros nul !!!",
-            "Vous êtes un gros boulet !!!"
+            "Revoyez votre code de la route !",
+            "Vous êtes un mauvais conducteur !",
+            "Vous feriez bien de faire attention !"
         ]
 }
