@@ -1,6 +1,6 @@
 
 
-<div class="question-image"><img src="images/question/{{ image }}" alt="{{ question }}" /></div>
+<div class="question-image" style="background-image:url('images/question/{{ image }}')"></div>
 <form action="#" class="response-form">
     <div class="progress-bar">
         <div class="progress"></div>
@@ -10,7 +10,7 @@
 
         <div class="row">
             {{#each responses }}
-                <div class="response-label col-sm-6"><input type="checkbox" value="{{ value }}" name="responses" id="response-{{ value }}" /><label for="response-{{ value }}">{{ text }}</label></div>
+                <div class="response-label col-sm-6"><input type="checkbox" value="{{ value }}" name="responses" id="response-{{ value }}" /><label for="response-{{ value }}"><span class="letter">{{ letter }}</span><span class="content-text">{{ text }}</span> </label></div>
             {{/each}}
         </div>
     </div>

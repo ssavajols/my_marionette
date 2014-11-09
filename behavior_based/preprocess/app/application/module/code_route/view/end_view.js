@@ -16,7 +16,13 @@ define('application/module/code_route/view/end_view',
                 }
             },
 
+            events: {
+                "click .icon-facebook": "shareFacebook"
+            },
+
             initialize: function(options){
+
+                this.isValid = options.isValid;
 
                 this.serializeData = _.bind(function(){
                     return {result: this[options.isValid ? "getOkText" : "getKoText"](), validClass: options.isValid ? "icon-ok-circled" : "icon-cancel-circled"};
@@ -31,6 +37,22 @@ define('application/module/code_route/view/end_view',
             getKoText: function(){
 
                 return this.model.get("resultKoText")[_.random(0, this.model.get('resultKoText').length-1)];
+            },
+
+            shareFacebook: function(event){
+
+                event.preventDefault();
+
+                var fbShareOptions = {
+                    method:"feed",
+                    picture:"http://www.potiondevie.fr/wp-content/uploads/2013/01/coderoute.jpg",
+                    name: this.isValid ? "J'ai réussi le test, et toi ?" : "Je n'ai pas réussi le test...",
+                    caption: "Un test de 1 question.",
+                    description: "Etes vous prêt à relever le défi ?",
+                    link: window.location.href
+                };
+
+                FB.ui(fbShareOptions, $.noop);
             }
         });
 
