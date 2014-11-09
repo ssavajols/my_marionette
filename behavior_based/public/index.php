@@ -1,18 +1,3 @@
-<?php
-if( isset($_REQUEST["signed_request"]) ){
-    $signed_request = $_REQUEST["signed_request"];
-    list($encoded_sig, $payload) = explode('.', $signed_request, 2);
-    $data = json_decode(base64_decode(strtr($payload, '-_', '+/')), true);
-
-    $isLiked = $data['page']['liked'];
-
-    $country = $data['user']['country'];
-
-}else{
-    $isLiked = TRUE;
-}
-
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,8 +13,7 @@ if( isset($_REQUEST["signed_request"]) ){
     <script>
         var BASE_URL = ""; // Set base url from server environment
         var enablePushState = false; // Force pushState on server environment
-        var appId = "0";
-        var isLiked = <?php echo isset($isLiked) && $isLiked == TRUE ? "true" : "false";?>;
+        var isLiked = true;
     </script>
 </head>
 <body>
@@ -49,6 +33,7 @@ if( isset($_REQUEST["signed_request"]) ){
         js.src = "//connect.facebook.net/en_US/sdk.js";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
+
 </script>
 <div id="container">
     <div id="header"></div>

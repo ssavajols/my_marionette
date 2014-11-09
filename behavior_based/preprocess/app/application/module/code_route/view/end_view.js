@@ -17,7 +17,7 @@ define('application/module/code_route/view/end_view',
             },
 
             events: {
-                "click .icon-facebook": "shareFacebook"
+                "click .share-facebook": "shareFacebook"
             },
 
             initialize: function(options){
@@ -49,7 +49,7 @@ define('application/module/code_route/view/end_view',
                     name: this.isValid ? "J'ai réussi le test, et toi ?" : "Je n'ai pas réussi le test...",
                     caption: "Un test de 1 question.",
                     description: "Etes vous prêt à relever le défi ?",
-                    link: window.location.href
+                    link: "https://www.facebook.com/pages/Code-route-Community/1535735286671365?sk=app_879175845425888"
                 };
 
                 FB.ui(fbShareOptions, $.noop);
