@@ -17,6 +17,16 @@ define('application/module/code_route/view/start_view',
                 "click @ui.start": "startBtn"
             },
 
+            initialize: function(){
+
+                if (!window.isLiked) {
+                    this.template = hbsTemplate["application/module/code_route/view/template/not_liked"];
+                }
+
+
+                Marionette.My.ItemView.prototype.initialize.apply(this, arguments);
+            },
+
             behaviors: {
                 handlebars: {
                     behaviorClass: BehaviorHandlebars
