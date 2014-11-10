@@ -28,6 +28,8 @@ define('system/application',
     function(config){
 
         // SET APPLICATION BASE URL IF NOT DEFINED IN CONFIG FILE
+        // OVERRIDE CONFIG OPTIONS WITH META TAGS
+        // OPTION urlPushState OVERRIDED BY force_pushstate META TAG
         var baseHREF = "";
 
         if( document.getElementsByName('force_pushstate').length ){
