@@ -44,7 +44,5 @@ define('system/application',
             config.base_url = baseHREF.replace(new RegExp('http(s)?://'+window.location.hostname), '');
         }
 
-        console.log(config);
-
         return new Marionette[config.namespace].Application({ channelName: config.globalChannelName });
     });
