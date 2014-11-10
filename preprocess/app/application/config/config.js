@@ -1,5 +1,22 @@
 /**
  * Project configuration
+ *
+ * To override options by meta tags in HTML document,
+ * Use the meta tags below :
+ *
+ * Ex:
+ *  <meta name="app.config.urlPushState" content="false" />
+ *  <meta name="app.config.number" content="2.2" />
+ *  <meta name="app.config.string" content="This is string" />
+ *  <meta name="app.config.boolean_false" content="false" />
+ *  <meta name="app.config.boolean_true" content="true" />
+ *
+ * Options not present will be added, options already set here will be overrided.
+ * Values will be converted to there detected seems like value type
+ *
+ * Base URL will be overrided by base HTML tag href.
+ * Do not use meta tag override to set base_url option.
+ *
  */
 define('application/config/config',
     function(){
@@ -56,14 +73,6 @@ define('application/config/config',
              *
              * To use with pushState, a valid rewriting is required. Use the .htaccess example below
              * to enable pushState routing.
-             *
-             * To externally force pushState for supported browsers,
-             * Use the meta tag into document HEAD below :
-             *
-             * <meta name="pushstate" content="false" />
-             *
-             * If not set Modernizr is used. If no Modernizr, pushState is disabled
-             *
              *
              * Ex: .htacces
                      RewriteEngine on

@@ -29,12 +29,27 @@ define('system/application',
 
         // SET APPLICATION BASE URL IF NOT DEFINED IN CONFIG FILE
         // OVERRIDE CONFIG OPTIONS WITH META TAGS
-        // OPTION urlPushState OVERRIDED BY force_pushstate META TAG
         var baseHREF = "";
+        var metaPrefix = 'app.config.';
 
-        if( document.getElementsByName('pushstate').length ){
-            config.urlPushState = document.getElementsByName('pushstate')[0].content.toLowerCase() === "true";
-        }
+        _.each(document.getElementsByTagName('meta'), function(meta){
+            var c;
+
+            if( meta.name.indexOf(metaPrefix) !== -1 ) {
+
+                if( !isNaN(meta.content) ){
+                    c = Number(meta.content);
+                }else if( meta.content.toLowerCase() === "true"  ){
+                    c = true;
+                }else if( meta.content.toLowerCase() === "false" ){
+                    c = false;
+                }else{
+                    c = meta.content;
+                }
+
+                config[meta.name.replace(metaPrefix, '')] = c;
+            }
+        });
 
         if( 'baseURI' in document ){
             baseHREF = document.baseURI;
