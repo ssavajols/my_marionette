@@ -32,8 +32,8 @@ define('system/application',
         // OPTION urlPushState OVERRIDED BY force_pushstate META TAG
         var baseHREF = "";
 
-        if( document.getElementsByName('force_pushstate').length ){
-            config.urlPushState = document.getElementsByName('force_pushstate')[0].content.toLowerCase() === "true";
+        if( document.getElementsByName('pushstate').length ){
+            config.urlPushState = document.getElementsByName('pushstate')[0].content.toLowerCase() === "true";
         }
 
         if( 'baseURI' in document ){

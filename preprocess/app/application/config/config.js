@@ -60,7 +60,7 @@ define('application/config/config',
              * To externally force pushState for supported browsers,
              * Use the meta tag into document HEAD below :
              *
-             * <meta name="force_pushstate" content="false" />
+             * <meta name="pushstate" content="false" />
              *
              * If not set Modernizr is used. If no Modernizr, pushState is disabled
              *
