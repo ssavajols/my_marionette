@@ -7,13 +7,10 @@ To override core classes, place yours scripts into application/core. To extend c
 
 ```javascript
 defne('application/core/my_item_view',           // Override className
-    [
-        "system/core/ma_item_view"                // Core class to extend
-    ],
-    function(MA_itemView){
+    function(){
 
 
-       var ItemView =  MA_itemView.extend({       // Place here your override methods and attributes
+       var ItemView =  Marionette.My.ItemView.extend({       // Place here your override methods and attributes
            override: true
        });
 
