@@ -8,6 +8,8 @@
     <meta name="og:description" content="Un test de 1 question. Etes vous prêt à relever le défi ?" />
     <meta name="og:image" content="http://www.potiondevie.fr/wp-content/uploads/2013/01/coderoute.jpg" />
 
+    <base href="" />
+
     <link rel="stylesheet" href="css/style.css"/>
     <script src="js/modernizr.js"></script>
     <script>
