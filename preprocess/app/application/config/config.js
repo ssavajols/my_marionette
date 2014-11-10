@@ -21,8 +21,16 @@ define('application/config/config',
 
             /**
              * Base url for backbone routes
+             *
+             * To externally set base_url, by PHP DOCUMENT_ROOT for example,
+             * Use the HTML tag into document HEAD below :
+             *
+             * <base href="/perso/my_marionette/public/" />
+             *
+             * If empty href attibute, the config base_url is used instead.
+             *
              */
-            base_url: window.BASE_URL || "",
+            base_url: "",
 
             /**
              * Global application selector
@@ -31,6 +39,8 @@ define('application/config/config',
 
             /**
              * Global channel name for backbone radio
+             *
+             * Accessed by Marionette.My.messageBus.global
              */
             globalChannelName: "global",
 
@@ -47,6 +57,13 @@ define('application/config/config',
              * To use with pushState, a valid rewriting is required. Use the .htaccess example below
              * to enable pushState routing.
              *
+             * To externally force pushState for supported browsers,
+             * Use the meta tag into document HEAD below :
+             *
+             * <meta name="force_pushstate" content="false" />
+             *
+             * If not set Modernizr is used. If no Modernizr, pushState is disabled
+             *
              *
              * Ex: .htacces
                      RewriteEngine on
@@ -60,6 +77,6 @@ define('application/config/config',
                      </ifModule>
              *
              */
-            urlPushState: typeof window.enablePushState !== "undefined" ? window.enablePushState : Modernizr && Modernizr.history
+            urlPushState: Modernizr && Modernizr.history
         };
     });

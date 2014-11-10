@@ -26,5 +26,25 @@ define('system/application',
         "system/core/marionette.my.view"
     ],
     function(config){
+
+        // SET APPLICATION BASE URL IF NOT DEFINED IN CONFIG FILE
+        var baseHREF = "";
+
+        if( document.getElementsByName('force_pushstate').length ){
+            config.urlPushState = document.getElementsByName('force_pushstate')[0].content.toLowerCase() === "true";
+        }
+
+        if( 'baseURI' in document ){
+            baseHREF = document.baseURI;
+        }else if( document.getElementsByTagName('base').length ){
+            baseHREF = document.getElementsByTagName('base')[0].href;
+        }
+
+        if(!config.base_url && baseHREF){
+            config.base_url = baseHREF.replace(new RegExp('http(s)?://'+window.location.hostname), '');
+        }
+
+        console.log(config);
+
         return new Marionette[config.namespace].Application({ channelName: config.globalChannelName });
     });
