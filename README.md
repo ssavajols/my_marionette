@@ -21,7 +21,7 @@ Override [documentation](./docs/override.md)
 [Template engine](./docs/template-engine.md)
 
 
-
+```
 |-- application
 |   |-- component
 |   |   `-- sample
@@ -81,3 +81,4 @@ Override [documentation](./docs/override.md)
         |-- marionette.my.sub_router.js
         |-- marionette.my.template_cache.js
         `-- marionette.my.view.js
+```
