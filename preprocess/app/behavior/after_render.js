@@ -1,9 +1,9 @@
 /**
  *
  */
-define('system/behavior/after_render',
+define('behavior/after_render',
     [
-        "application/config/config"
+        "config/config"
     ],
     function(config){
 

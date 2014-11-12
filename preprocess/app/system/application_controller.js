@@ -3,11 +3,10 @@
  */
 define('system/application_controller',
     [
-        "application/config/config"
     ],
-    function(config){
+    function(){
 
-        var Controller = Marionette[config.namespace].Controller.extend({
+        var Controller = Marionette.Controller.extend({
 
             initialize: function(options){
                 this.options = options.opt;

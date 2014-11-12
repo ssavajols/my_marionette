@@ -1,6 +1,6 @@
-define('system/behavior/pixi',
+define('behavior/pixi',
     [
-        "application/config/config"
+        "config/config"
     ],
     function(config){
 

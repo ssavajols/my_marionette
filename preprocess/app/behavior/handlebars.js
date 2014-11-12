@@ -1,9 +1,9 @@
 /**
  *
  */
-define('system/behavior/handlebars',
+define('behavior/handlebars',
     [
-        "application/config/config"
+        "config/config"
     ],
     function(config){
 

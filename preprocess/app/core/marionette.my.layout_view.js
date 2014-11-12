@@ -1,18 +1,18 @@
 /**
  * Core layout
  */
-define('system/core/marionette.my.layout_view',
+define('core/marionette.my.layout_view',
     [
-        "application/config/config"
+        "config/config",
+        "core/marionette.my.region"
     ],
     function(config){
 
+        if( !Marionette[config.namespace] ){
+            Marionette[config.namespace] = {};
+        }
 
-    if( !Marionette.My ){
-        Marionette.My = {};
-    }
-
-        Backbone.Marionette.My.LayoutView = Backbone.Marionette.LayoutView.extend({
+        Marionette[config.namespace].LayoutView = Backbone.Marionette.LayoutView.extend({
 
         template: false,
 
@@ -42,7 +42,7 @@ define('system/core/marionette.my.layout_view',
                 this[region].show(view, options, callback);
 
             }
-        },
+        }
 
 
     });

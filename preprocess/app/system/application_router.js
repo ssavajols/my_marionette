@@ -4,21 +4,21 @@
 define('system/application_router',
 
     [
-        "application/config/config",
+        "config/config",
         "system/application_controller",
-        "application/config/module_routes"
+        "config/module_routes"
     ],
 
     function(config, Controller, moduleRoutes){
 
-        var Router = Marionette[config.namespace].AppRouter.extend({
+        var Router = Marionette.AppRouter.extend({
 
             initialize: function(options){
 
                 this.controller = new Controller(options);
                 this.controller.moduleRoutes = this.moduleRoutes;
 
-                Marionette[config.namespace].AppRouter.prototype.initialize.apply(this, arguments);
+                Marionette.AppRouter.prototype.initialize.apply(this, arguments);
             },
 
             appRoutes: {

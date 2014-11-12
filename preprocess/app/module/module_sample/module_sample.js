@@ -12,7 +12,7 @@
  *      Set to true to auto start module on start global application
  *
  */
-define('application/module/module_sample/module_sample',
+define('module/module_sample/module_sample',
     [
         "system/application",
         "application/module/module_sample/router/router"
@@ -21,13 +21,12 @@ define('application/module/module_sample/module_sample',
 
         Application.module('module_sample', {
             startWithParent: false,
-            moduleClass: Marionette.My.Module,
             initialize: function(options){
                 this.on('start', function(baseRoute){
                    new Router(baseRoute);
                 });
 
-                Marionette.My.Module.prototype.initialize.apply(this, arguments);
+                Marionette.Module.prototype.initialize.apply(this, arguments);
             }
         });
 

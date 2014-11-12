@@ -1,9 +1,9 @@
 /**
  * Sample controller
  */
-define('application/module/module_sample/controller/controller',
+define('module/module_sample/controller/controller',
     [
-        "application/module/module_sample/view/sample_view"
+        "module/module_sample/view/sample_view"
     ],
     function(SampleView){
 

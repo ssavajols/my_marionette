@@ -4,12 +4,12 @@
 define('system/application_initializer',
     [
         "system/application",
-        "system/application_message_bus",
         "system/application_router",
         "system/application_layout",
-        "application/config/config"
+        "core/marionette.my.message_bus",
+        "config/config"
     ],
-    function(Application, messageBus, Router, Layout, config){
+    function(Application, Router, Layout, messageBus, config){
 
     var appLayout = new Layout();
 
@@ -69,7 +69,11 @@ define('system/application_initializer',
 
     // BEHAVIORS LOOKUP
     Application.addInitializer(function(){
-       Marionette[config.namespace].Behaviors.behaviorsLookup = function(){
+       Marionette.Behaviors.behaviorsLookup = function(){
+           if( !Marionette[config.namespace] ){
+               Marionette[config.namespace] = {};
+           }
+
            return Marionette[config.namespace].BehaviorsLookup;
        };
     });

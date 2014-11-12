@@ -1,11 +1,11 @@
-define('application/module/code_route/view/start_view',
+define('module/code_route/view/start_view',
     [
-        'system/behavior/handlebars'
+        'behavior/handlebars'
     ],
     function(BehaviorHandlebars){
 
-        var StartView = Marionette.My.ItemView.extend({
-            template:"application/module/code_route/view/template/intro",
+        var StartView = Marionette.ItemView.extend({
+            template:"module/code_route/view/template/intro",
 
             className: "introduction",
 
@@ -20,11 +20,11 @@ define('application/module/code_route/view/start_view',
             initialize: function(){
 
                 if (!window.isLiked) {
-                    this.template = hbsTemplate["application/module/code_route/view/template/not_liked"];
+                    this.template = hbsTemplate["module/code_route/view/template/not_liked"];
                 }
 
 
-                Marionette.My.ItemView.prototype.initialize.apply(this, arguments);
+                Marionette.ItemView.prototype.initialize.apply(this, arguments);
             },
 
             behaviors: {

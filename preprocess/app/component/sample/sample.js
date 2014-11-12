@@ -6,10 +6,10 @@
  * Import application global object to set module
  *
  */
-define('application/component/sample/sample',
+define('component/sample/sample',
     [
         "system/application",
-        "application/component/sample/view/sample_layout"
+        "component/sample/view/sample_layout"
     ],
     function(Application, SampleLayout){
 

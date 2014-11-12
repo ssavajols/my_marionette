@@ -1,9 +1,9 @@
 /**
  *
  */
-define('system/behavior/scroll',
+define('behavior/scroll',
     [
-        "application/config/config"
+        "config/config"
     ],
     function(config){
 

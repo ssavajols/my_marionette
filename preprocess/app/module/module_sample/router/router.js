@@ -1,7 +1,7 @@
 /**
  * Sample router
  */
-define('application/module/module_sample/router/router',
+define('module/module_sample/router/router',
     [
         "application/module/module_sample/controller/controller"
     ],

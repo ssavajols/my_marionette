@@ -1,6 +1,6 @@
-define('system/core/marionette.my.behavior',
+define('core/marionette.my.behavior',
     [
-        'application/config/config'
+        'config/config'
     ],
     function(config){
 

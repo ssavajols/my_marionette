@@ -1,16 +1,16 @@
-define('application/module/code_route/controller/controller',
+define('module/code_route/controller/controller',
     [
-        "application/module/code_route/view/layout",
-        "application/module/code_route/view/start_view",
-        "application/module/code_route/view/end_view",
-        "application/module/code_route/view/question_view",
+        "module/code_route/view/layout",
+        "module/code_route/view/start_view",
+        "module/code_route/view/end_view",
+        "module/code_route/view/question_view",
 
-        "application/module/code_route/model/i18n_model"
+        "module/code_route/model/i18n_model"
     ],
     function(LayoutView, StartView, EndView, QuestionView, I18nModel){
 
         var controller;
-        controller = Marionette.My.Controller.extend({
+        controller = Marionette.Controller.extend({
 
             timer: {},
 

@@ -1,15 +1,15 @@
-define('system/core/marionette.my.region',
+define('core/marionette.my.region',
     [
-        "application/helper/transitions",
-        "application/config/config"
+        "config/config",
+        "helper/transitions"
     ],
-    function(transitions, config){
+    function(config, transitions){
 
         if( !Marionette[config.namespace] ){
             Marionette[config.namespace] = {};
         }
 
-        Marionette[config.namespace].Region= Marionette.Region.extend({
+        Marionette[config.namespace].Region = Marionette.Region.extend({
 
             transitions: {},
 

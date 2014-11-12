@@ -3,8 +3,9 @@
  */
 define('system/application_layout',
     [
-        "application/config/config",
-        "system/core/marionette.my.layout_view"
+        "config/config",
+        "core/marionette.my.layout_view",
+        "core/marionette.my.region"
     ],
     function(config){
 

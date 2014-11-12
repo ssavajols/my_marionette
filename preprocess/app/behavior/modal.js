@@ -7,9 +7,9 @@
  *      onAfterCloseModal
  *      onAfterOpenModal
  */
-define('system/behavior/modal',
+define('behavior/modal',
     [
-        "application/config/config"
+        "config/config"
     ],
     function(config){
 

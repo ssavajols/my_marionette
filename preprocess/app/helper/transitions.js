@@ -1,4 +1,4 @@
-define('application/helper/transitions', function () {
+define('helper/transitions', function () {
 
     return {
 

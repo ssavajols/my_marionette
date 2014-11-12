@@ -1,15 +1,15 @@
 /**
  * Sample view
  */
-define('application/module/module_sample/view/sample_view',
+define('module/module_sample/view/sample_view',
     [
-        'system/behavior/after_render',
-        'system/behavior/scroll',
-        'system/behavior/resize'
+        'behavior/after_render',
+        'behavior/scroll',
+        'behavior/resize'
     ],
     function(BehaviorAfterRender, BehaviorScroll, BehaviorResize){
 
-        var SampleView = Backbone.Marionette.My.ItemView.extend({
+        var SampleView = Backbone.Marionette.ItemView.extend({
             template:"<div>This is a module sample view</div>",
             behaviors: {
                 afterRender: {

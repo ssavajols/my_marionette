@@ -8,7 +8,7 @@ define('main',
         // Components
 
         // Modules
-        "application/module/code_route/code_route"
+        "module/code_route/code_route"
     ],
     function(APP) {
 

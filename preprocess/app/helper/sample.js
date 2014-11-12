@@ -1,7 +1,7 @@
 /**
  * Helpers for application
  */
-define('application/helper/sample', function(){
+define('helper/sample', function(){
 
     var helper = {
         alert: function(){

@@ -18,7 +18,7 @@
  * Do not use meta tag override to set base_url option.
  *
  */
-define('application/config/config',
+define('config/config',
     function(){
 
         return {

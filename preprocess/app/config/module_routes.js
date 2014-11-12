@@ -1,4 +1,4 @@
-define('application/config/module_routes', function(){
+define('config/module_routes', function(){
 
     /**
      * Modules routes

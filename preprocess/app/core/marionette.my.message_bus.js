@@ -1,9 +1,8 @@
-define('system/application_message_bus',
+define('core/marionette.my.message_bus',
     [
-        'application/config/config'
+        'config/config'
     ],
     function(config){
-
 
     if( !Marionette[config.namespace] ){
         Marionette[config.namespace] = {};

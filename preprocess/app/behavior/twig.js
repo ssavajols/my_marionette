@@ -1,9 +1,9 @@
 /**
  *
  */
-define('system/behavior/twig',
+define('behavior/twig',
     [
-        "application/config/config"
+        "config/config"
     ],
     function(config){
 

@@ -1,9 +1,9 @@
 /**
  *
  */
-define('system/behavior/resize',
+define('behavior/resize',
     [
-        "application/config/config"
+        "config/config"
     ],
     function(config){
 

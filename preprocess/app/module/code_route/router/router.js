@@ -1,10 +1,10 @@
-define('application/module/code_route/router/router',
+define('module/code_route/router/router',
     [
-        "application/module/code_route/controller/controller"
+        "module/code_route/controller/controller"
     ],
     function(Controller){
 
-        var Router = Marionette.My.SubRouter.extend({
+        var Router = Marionette.SubRouter.extend({
 
             initialize: function(options){
                 this.controller = new Controller(options);

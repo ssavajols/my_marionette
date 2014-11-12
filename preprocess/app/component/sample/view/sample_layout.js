@@ -1,9 +1,9 @@
 /**
  * Sample view
  */
-define('application/component/sample/view/sample_layout',
+define('component/sample/view/sample_layout',
     [
-        "system/behavior/twig"
+        "behavior/twig"
     ],
     function(Twig){
 

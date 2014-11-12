@@ -1,9 +1,9 @@
 /**
  *
  */
-define('system/behavior/resize_to_view_container',
+define('behavior/resize_to_view_container',
     [
-        "application/config/config"
+        "config/config"
     ],
     function(config){
 

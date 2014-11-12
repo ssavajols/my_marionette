@@ -1,14 +1,14 @@
-define('application/module/code_route/view/question_view',
+define('module/code_route/view/question_view',
     [
-        "application/module/code_route/collection/question_collection",
-        'system/behavior/handlebars'
+        "module/code_route/collection/question_collection",
+        'behavior/handlebars'
     ],
     function(QuestionCollection, BehaviorHandlebars){
 
 
         var QuestionView;
-        QuestionView = Marionette.My.ItemView.extend({
-            template: "application/module/code_route/view/template/question",
+        QuestionView = Marionette.ItemView.extend({
+            template: "module/code_route/view/template/question",
             ui: {
                 "form": ".response-form",
                 "image": ".question-image"
@@ -37,7 +37,7 @@ define('application/module/code_route/view/question_view',
 
                 Marionette.My.messageBus.global.vent.on('updateTimer', _.bind(this.updateTime, this));
 
-                Backbone.Marionette.My.ItemView.prototype.initialize.apply(this, arguments);
+                Marionette.ItemView.prototype.initialize.apply(this, arguments);
             },
 
             updateTime: function (t) {
@@ -82,7 +82,7 @@ define('application/module/code_route/view/question_view',
             render: function () {
 
                 if (this.model) {
-                    Backbone.Marionette.My.ItemView.prototype.render.apply(this, arguments);
+                    Marionette.ItemView.prototype.render.apply(this, arguments);
                 }
 
             },
