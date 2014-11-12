@@ -1,4 +1,4 @@
-define('module/code_route/model/question_model',
+define('bundles/code_route/model/question_model',
     [
     ],
     function(){

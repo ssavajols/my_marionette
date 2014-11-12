@@ -1,6 +1,6 @@
-define('module/code_route/view/question_view',
+define('bundles/code_route/view/question_view',
     [
-        "module/code_route/collection/question_collection",
+        "bundles/code_route/collection/question_collection",
         'behavior/handlebars'
     ],
     function(QuestionCollection, BehaviorHandlebars){
@@ -8,7 +8,7 @@ define('module/code_route/view/question_view',
 
         var QuestionView;
         QuestionView = Marionette.ItemView.extend({
-            template: "module/code_route/view/template/question",
+            template: "bundles/code_route/view/template/question",
             ui: {
                 "form": ".response-form",
                 "image": ".question-image"

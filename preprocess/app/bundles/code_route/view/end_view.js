@@ -1,4 +1,4 @@
-define('module/code_route/view/end_view',
+define('bundles/code_route/view/end_view',
     [
         'behavior/handlebars'
     ],
@@ -6,7 +6,7 @@ define('module/code_route/view/end_view',
 
 
         var EndView = Marionette.ItemView.extend({
-            template:"module/code_route/view/template/result",
+            template:"bundles/code_route/view/template/result",
 
             className: "result",
 

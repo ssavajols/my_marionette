@@ -1,9 +1,9 @@
 /**
  * Sample router
  */
-define('module/module_sample/router/router',
+define('bundles/module_sample/router/router',
     [
-        "application/module/module_sample/controller/controller"
+        "application/bundles/module_sample/controller/controller"
     ],
     function(Controller){
 

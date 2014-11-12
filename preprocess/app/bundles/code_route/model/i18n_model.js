@@ -1,4 +1,4 @@
-define('module/code_route/model/i18n_model',
+define('bundles/code_route/model/i18n_model',
     [
     ],
     function(){

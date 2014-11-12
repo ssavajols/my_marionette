@@ -1,7 +1,7 @@
 /**
  * Sample view
  */
-define('module/module_sample/view/sample_view',
+define('bundles/module_sample/view/sample_view',
     [
         'behavior/after_render',
         'behavior/scroll',

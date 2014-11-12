@@ -1,6 +1,6 @@
-define('module/code_route/router/router',
+define('bundles/code_route/router/router',
     [
-        "module/code_route/controller/controller"
+        "bundles/code_route/controller/controller"
     ],
     function(Controller){
 

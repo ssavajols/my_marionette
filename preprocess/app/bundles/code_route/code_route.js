@@ -1,8 +1,8 @@
 // Module Definition
-define('module/code_route/code_route',
+define('bundles/code_route/code_route',
     [
         "system/application",
-        "module/code_route/router/router"
+        "bundles/code_route/router/router"
     ],
     function(Application, Router){
 

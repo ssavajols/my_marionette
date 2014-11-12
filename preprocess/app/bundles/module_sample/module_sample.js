@@ -12,10 +12,10 @@
  *      Set to true to auto start module on start global application
  *
  */
-define('module/module_sample/module_sample',
+define('bundles/module_sample/module_sample',
     [
         "system/application",
-        "application/module/module_sample/router/router"
+        "application/bundles/module_sample/router/router"
     ],
     function(Application, Router){
 

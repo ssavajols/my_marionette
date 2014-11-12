@@ -1,6 +1,6 @@
-define('module/code_route/collection/question_collection',
+define('bundles/code_route/collection/question_collection',
     [
-        "module/code_route/model/question_model"
+        "bundles/code_route/model/question_model"
     ],
     function(QuestionModel){
 

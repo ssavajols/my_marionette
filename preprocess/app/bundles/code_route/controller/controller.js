@@ -1,11 +1,11 @@
-define('module/code_route/controller/controller',
+define('bundles/code_route/controller/controller',
     [
-        "module/code_route/view/layout",
-        "module/code_route/view/start_view",
-        "module/code_route/view/end_view",
-        "module/code_route/view/question_view",
+        "bundles/code_route/view/layout",
+        "bundles/code_route/view/start_view",
+        "bundles/code_route/view/end_view",
+        "bundles/code_route/view/question_view",
 
-        "module/code_route/model/i18n_model"
+        "bundles/code_route/model/i18n_model"
     ],
     function(LayoutView, StartView, EndView, QuestionView, I18nModel){
 

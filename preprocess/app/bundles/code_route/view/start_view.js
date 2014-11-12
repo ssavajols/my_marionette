@@ -1,11 +1,11 @@
-define('module/code_route/view/start_view',
+define('bundles/code_route/view/start_view',
     [
         'behavior/handlebars'
     ],
     function(BehaviorHandlebars){
 
         var StartView = Marionette.ItemView.extend({
-            template:"module/code_route/view/template/intro",
+            template:"bundles/code_route/view/template/intro",
 
             className: "introduction",
 
@@ -20,7 +20,7 @@ define('module/code_route/view/start_view',
             initialize: function(){
 
                 if (!window.isLiked) {
-                    this.template = hbsTemplate["module/code_route/view/template/not_liked"];
+                    this.template = hbsTemplate["bundles/code_route/view/template/not_liked"];
                 }
 
 
