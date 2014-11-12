@@ -1,5 +1,4 @@
 # BEST PRACTICE
-
 CamelCase for Class names
 
 
