@@ -7,7 +7,7 @@ define('module/module_sample/router/router',
     ],
     function(Controller){
 
-        var Router = Marionette.My.SubRouter.extend({
+        var Router = Marionette.SubRouter.extend({
 
             initialize: function(options){
                 this.controller = new Controller(options);

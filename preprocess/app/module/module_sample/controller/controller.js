@@ -7,7 +7,7 @@ define('module/module_sample/controller/controller',
     ],
     function(SampleView){
 
-    var controller = Marionette.My.Controller.extend({
+    var controller = Marionette.Controller.extend({
 
         index: function(){
 

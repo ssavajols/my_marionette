@@ -14,12 +14,11 @@ define('component/sample/sample',
     function(Application, SampleLayout){
 
         Application.module('sample', {
-            moduleClass: Marionette.My.Module,
             initialize: function(){
 
                 Marionette.My.messageBus.global.commands.execute('setView', new SampleLayout(), 'header');
 
-                Marionette.My.Module.prototype.initialize.apply(this, arguments);
+                Marionette.Module.prototype.initialize.apply(this, arguments);
             }
         });
 
