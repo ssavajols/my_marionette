@@ -1,6 +1,7 @@
 define('behavior/pixi',
     [
-        "config/config"
+        "config/config",
+        "core/marionette.my.behavior"
     ],
     function(config){
 

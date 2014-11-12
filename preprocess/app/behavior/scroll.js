@@ -3,7 +3,8 @@
  */
 define('behavior/scroll',
     [
-        "config/config"
+        "config/config",
+        "core/marionette.my.behavior"
     ],
     function(config){
 

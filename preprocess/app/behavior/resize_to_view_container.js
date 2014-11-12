@@ -7,7 +7,7 @@ define('behavior/resize_to_view_container',
     ],
     function(config){
 
-        var Behavior = Marionette[config.namespace].Behavior.extend({
+        var Behavior = Marionette.Behavior.extend({
 
             onBeforeShow: function(){
                 this.onResize();

@@ -3,7 +3,8 @@
  */
 define('behavior/after_render',
     [
-        "config/config"
+        "config/config",
+        "core/marionette.my.behavior"
     ],
     function(config){
 

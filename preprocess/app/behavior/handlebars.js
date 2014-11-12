@@ -7,7 +7,7 @@ define('behavior/handlebars',
     ],
     function(config){
 
-        var Behavior = Marionette[config.namespace].Behavior.extend({
+        var Behavior = Marionette.Behavior.extend({
 
             initialize: function(){
                 if( typeof this.view.template === "string"){

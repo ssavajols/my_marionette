@@ -9,7 +9,8 @@
  */
 define('behavior/modal',
     [
-        "config/config"
+        "config/config",
+        "core/marionette.my.behavior"
     ],
     function(config){
 

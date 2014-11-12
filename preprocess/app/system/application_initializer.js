@@ -44,14 +44,6 @@ define('system/application_initializer',
         messageBus.commands.setHandler('removeView', function(region, hide, callback){
             appLayout.removeView(region, hide, callback);
         });
-
-        messageBus.commands.setHandler('fadeOut', function(region, callback){
-           appLayout.fadeOut(500, region, callback);
-        });
-
-        messageBus.commands.setHandler('fadeIn', function(region, callback){
-           appLayout.fadeIn(500, region, callback);
-        });
     });
 
     // RES REQ

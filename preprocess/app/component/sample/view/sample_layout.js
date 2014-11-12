@@ -3,7 +3,8 @@
  */
 define('component/sample/view/sample_layout',
     [
-        "behavior/twig"
+        "behavior/twig",
+        "core/marionette.my.layout_view"
     ],
     function(Twig){
 

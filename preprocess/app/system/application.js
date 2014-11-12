@@ -3,11 +3,7 @@
  */
 define('system/application',
     [
-        "config/config",
-        "core/marionette.my.region",
-        "core/marionette.my.behavior",
-        "core/marionette.my.layout_view",
-        "core/marionette.my.message_bus"
+        "config/config"
     ],
     function(config){
 
